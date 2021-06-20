@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberDAOTemp">
+
+	<insert id="insertMember">
+		<![CDATA[
+			insert into member(seq, id, pswd1, name, email, mobile) 
+			values((select nvl(max(seq), 0)+1 from member),#{id},#{pswd1},#{name},#{email},#{mobile})
+		]]>
+	</insert>
+	
+	<update id="updateMember">
+		<![CDATA[
+			update member set name=#{name}, mobile=#{mobile}, email=#{email} where id=#{id}
+		]]>
+	</update>
+	
+	<delete id="deleteMember">
+		<![CDATA[
+			delete member where id=#{id}
+		]]>
+	</delete>
+	
+
+</mapper>

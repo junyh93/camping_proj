@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+
+	<!-- Alias 설정 -->
+	<typeAliases><!-- com.springbook.biz.board.BoardVO를 별칭을 사용해 board로 만들어서 간단하게 표기할 수 있게했다 -->
+		<typeAlias alias="member" type="com.camping.admin.member.repository.MemberVO"/>
+	</typeAliases>
+
+	<!-- Sql Mapper 설정 -->
+	<mappers><!-- MyBatis에게 어떤 파일을 봐야하는지 알려줌 -->
+		<mapper resource="mappings/member-mapping.xml"/>
+	</mappers>
+
+</configuration>
