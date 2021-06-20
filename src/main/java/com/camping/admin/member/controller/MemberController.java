@@ -20,7 +20,7 @@ import net.nurigo.java_sdk.exceptions.CoolsmsException;
 public class MemberController {
 	@Autowired
 	private MemberSerivce memberService;
-	//1234
+	//12345
 	@RequestMapping("/join.do")
 	public String insertMember(MemberVO vo, HttpServletRequest request) {
 		
