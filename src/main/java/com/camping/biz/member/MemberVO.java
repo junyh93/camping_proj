@@ -9,6 +9,8 @@ public class MemberVO {
 	private String memEmail;
 	private String memPhone;
 	private int memType;
+	private String getId;
+	private String getPw;
 	
 	private String searchCondition;
 	private String searchKeyword;
@@ -62,6 +64,20 @@ public class MemberVO {
 	public void setMemType(int memType) {
 		this.memType = memType;
 	}
+	
+	
+	public String getGetId() {
+		return getId;
+	}
+	public void setGetId(String getId) {
+		this.getId = getId;
+	}
+	public String getGetPw() {
+		return getPw;
+	}
+	public void setGetPw(String getPw) {
+		this.getPw = getPw;
+	}
 	public String getSearchCondition() {
 		return searchCondition;
 	}
@@ -77,9 +93,11 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [memNo=" + memNo + ", memId=" + memId + ", memPw=" + memPw + ", pswd2=" + pswd2 + ", memName="
-				+ memName + ", memEmail=" + memEmail + ", memPhone=" + memPhone + ", memType=" + memType
-				+ ", searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword + "]";
+				+ memName + ", memEmail=" + memEmail + ", memPhone=" + memPhone + ", memType=" + memType + ", getId="
+				+ getId + ", getPw=" + getPw + ", searchCondition=" + searchCondition + ", searchKeyword="
+				+ searchKeyword + "]";
 	}
+
 
 
 }

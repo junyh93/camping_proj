@@ -25,7 +25,9 @@ import com.camping.biz.member.MemberVO;
 public class MemberController {
 	@Autowired
 	private MemberSerivce memberService;
+	@Autowired
 	private AdminService adminService;
+	@Autowired
 	private CertificationService certificationService;
 	
 	
@@ -75,17 +77,17 @@ public class MemberController {
 					MemberVO vo, AdminVO ad, HttpSession session, HttpServletRequest request , Model model){
 		System.out.println("로그인 처리 중 ");
 		
-		String getid = request.getParameter(id);
-		String getpw = request.getParameter(pw);
-		System.out.println(getid);
+		String getId = request.getParameter("id");
+		String getPw = request.getParameter("pw");
+		System.out.println(getId);
 		String msg = "로그인 실패";
 		String url = "login.do";
 		String cm = "";
 		
 		//amdin 로그인 처리
-		if(id.length() < 6) {
-			ad.setAdId(getid);
-			ad.setAdPw(getpw);
+		if(getId.length() < 6) {
+			ad.setGetId(getId);
+			ad.setGetPw(getPw);
 			
 			boolean result = adminService.getLogin(ad);
 			
@@ -93,7 +95,7 @@ public class MemberController {
 				System.out.println("admin 로그인 성공");
 				
 				msg="로그인 성공";
-				url = "/main.do";
+				url = "main.do";
 				 
 				session.setAttribute("adId",ad.getAdId()); 
 				session.setAttribute("adNo", ad.getAdNo());
@@ -106,11 +108,11 @@ public class MemberController {
 			
 		}else {
 		//member 로그인 처리
-			System.out.println(getid);
+			System.out.println(getId);
 			
-			vo.setMemId(getid);
-			vo.setMemPw(getpw);
-			
+			vo.setGetId(getId);
+			vo.setGetPw(getPw);
+			System.out.println(vo);
 			boolean result = memberService.getLogin(vo);
 			
 			if(result == true) {
@@ -119,8 +121,10 @@ public class MemberController {
 				
 				MemberVO member = memberService.getMember(vo);
 				
+				System.out.println(member);
+				
 				msg="로그인 성공";
-				url = "/main.do";
+				url = "main.do";
 
 				session.setAttribute("memId",member.getMemId()); 
 				session.setAttribute("memNo",member.getMemNo());

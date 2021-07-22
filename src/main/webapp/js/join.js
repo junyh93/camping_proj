@@ -40,20 +40,7 @@ mobile.addEventListener("change", checkPhoneNum);/* 휴대폰 */
 
 /*콜백 함수*/
 
-function checkId() {
-    var idPattern = /[a-zA-Z0-9_-]{5,20}/;
-    if(id.value === "") {
-        error[0].innerHTML = "필수 정보입니다.";
-        error[0].style.display = "block";
-    } else if(!idPattern.test(id.value)) {
-        error[0].innerHTML = "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
-        error[0].style.display = "block";
-    } else {
-        error[0].innerHTML = "사용 가능한 아이디 입니다";
-        error[0].style.color = "#08A600";
-        error[0].style.display = "block";
-    }
-}
+
 
 function checkPw() {
     var pwPattern = /[a-zA-Z0-9~!@#$%^&*()_+|<>?:{}]{8,16}/;

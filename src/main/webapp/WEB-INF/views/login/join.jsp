@@ -52,21 +52,28 @@ $(function(){
 
 <script type="text/javascript">
 //null값 있을 경우 submit 못하게 막기
+	
 	$(function(){
+		var idReg = /^[a-z]+[0-9a-z]{5,20}$/;
 		$('form[name=frm]').submit(function(){
-			
+		
 			if(!$('#chk1').prop("checked")){
 				alert('이용약관 동의는 필수입니다');
 				$('#chk1').focus();
 				event.preventDefault();
 				return false;
-			}if(!$('#chk2').prop("checked")){
+			}else if(!$('#chk2').prop("checked")){
 				alert('개인정보 수집 동의는 필수입니다');
 				$('#chk2').focus();
 				event.preventDefault();
 				return false;
-			}else if($('#id').val().length < 5){
+			}else if($('#id').val().length < 6){
 				alert('아이디를 확인하세요');
+				$('#id').focus();
+				event.preventDefault();
+				return false;
+			}else if(!idReg.test($('#id').val())){
+				alert('특수문자는 사용할 수 없습니다.');
 				$('#id').focus();
 				event.preventDefault();
 				return false;
@@ -323,12 +330,12 @@ $(function(){
                         <label for="id">아이디</label>
                     </h3>
                     <span class="box int_id">
-                        <input type="text" id="id" name="memId" class="int" maxlength="20" placeholder="5자이상 소문자,숫자,특수기호(_),(-)만 사용가능">
+                        <input type="text" id="id" name="memId" class="int" maxlength="20" placeholder="6자이상 소문자,숫자,특수기호(_),(-)만 사용가능">
                     </span>
 
                     <button type="button" id="idChk" value="N" >중복확인</button>
 
-                    <span class="error_next_box"></span>
+           <!--          <span class="error_next_box"></span> -->
                 </div>
 
                 <!-- PW1 -->
