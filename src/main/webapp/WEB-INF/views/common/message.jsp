@@ -10,8 +10,8 @@
 <body>
 
 <script type="text/javascript">
-	alert('$(msg)');
-	location.href="<c:url value='$(url)'/>";
+	alert('${msg}');
+	location.href="<c:url value='${url}'/>";
 
 </script>
 
