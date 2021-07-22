@@ -24,11 +24,11 @@
 					common/arithmeticError.jsp
 				</beans:prop>
 				<beans:prop key="java.lang.NullPointerException">
-					common/NullPointerError.jsp
+					common/NullPointerError
 				</beans:prop>
 			</beans:props>
 		</beans:property>
-		<beans:property name="defaultErrorView" value="common/arithmeticError.jsp" />
+		<beans:property name="defaultErrorView" value="common/arithmeticError" />
 	</beans:bean>
 	
 	
@@ -51,6 +51,31 @@
 		<beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<beans:property name="paramName" value="lang"></beans:property>
 		</beans:bean>
+		
+		<!-- 아래 내용은 로그아웃후 뒤로가기버튼눌렀을때 다시 로그인 되는것을 방지하기 위함.
+
+			<beans:bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+
+		        <beans:property name="cacheSeconds" value="0" />
+
+		        <beans:property name="useExpiresHeader" value="true" />
+
+		        <beans:property name="useCacheControlHeader" value="true" />
+
+		        <beans:property name="useCacheControlNoStore" value="true" />
+
+		        <beans:property name="cacheMappings">
+
+                         <beans:props> 아래 경로에만 뒤로가기 제한시킴.
+
+                                  <beans:prop key="/login/**">86400</beans:prop>
+
+                           </beans:props>
+
+    		 	 </beans:property>
+
+		     </beans:bean>	
+		      -->
 	</mvc:interceptors>
 	
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
@@ -61,14 +86,12 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory 
 	<resources mapping="/resources/**" location="/resources/" />
 -->
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory 	
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory 	-->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
--->
-	
-	
-	
+
+
 </beans:beans>
