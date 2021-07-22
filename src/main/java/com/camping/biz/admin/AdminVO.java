@@ -5,6 +5,8 @@ public class AdminVO {
 	private String adId;
 	private String adPw;
 	private String adName;
+	private String getId;
+	private String getPw;
 	
 	public int getAdNo() {
 		return adNo;
@@ -30,11 +32,25 @@ public class AdminVO {
 	public void setAdName(String adName) {
 		this.adName = adName;
 	}
-	
+	public String getGetId() {
+		return getId;
+	}
+	public void setGetId(String getId) {
+		this.getId = getId;
+	}
+	public String getGetPw() {
+		return getPw;
+	}
+	public void setGetPw(String getPw) {
+		this.getPw = getPw;
+	}
 	@Override
 	public String toString() {
-		return "AdminVO [adNo=" + adNo + ", adId=" + adId + ", adPw=" + adPw + ", adName=" + adName + "]";
+		return "AdminVO [adNo=" + adNo + ", adId=" + adId + ", adPw=" + adPw + ", adName=" + adName + ", getId=" + getId
+				+ ", getPw=" + getPw + "]";
 	}
+	
+	
 	
 	
 }
