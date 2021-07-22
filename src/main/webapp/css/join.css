@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /* 레이아웃 틀 */
+*{
+	font-family:'G마켓 산스';
+	font-weight: normal; 
+}
 html {
     height: 100%;
 }
@@ -8,7 +12,6 @@ body {
     margin: 0;
     height: 100%;
     background: #fff;
-    font-family:  'Jua', sans-serif;    
 }
 #logo {
     width: 240px;
@@ -53,18 +56,15 @@ h3 {
 }
 
 .int {
-    display: block;
-    position: relative;
-    width: 100%;
+   /*  display: block; */
+    position: relative; 
+    width: 80%;
     height: 29px;
     border: none;
     background: #fff;
     font-size: 15px;
 }
 
-input {
-    font-family:  'Jua', sans-serif;    
-}
 
 .box.int_id {
     padding-right: 110px;
@@ -129,7 +129,7 @@ select {
     text-align: start;
     border: none;
     cursor: default;
-    font-family: 'Jua', sans-serif;
+
 }
 
 /* 에러메세지 */
@@ -164,7 +164,7 @@ select {
     background-color: #b0c82b;
     font-size: 20px;
     font-weight: 400;
-    font-family:  'Jua', sans-serif;
+
 }
 #mail_check_input_box_false{
 	background-color: #ebebe4;
