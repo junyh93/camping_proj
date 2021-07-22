@@ -15,7 +15,8 @@ public class AdminDAO extends SqlSessionDaoSupport{
 		super.setSqlSessionFactory(sqlSessionFactory);
 	}
 	
-	public AdminVO getLogin(AdminVO ad) {
-		return getSqlSession().selectOne("AdminDAO.getLogin",ad);
+	public boolean getLogin(AdminVO ad) {
+		AdminVO result =  getSqlSession().selectOne("AdminDAO.getLogin",ad);
+		 return(result == null) ? false : true;
 	}
 }

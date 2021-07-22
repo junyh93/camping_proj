@@ -37,6 +37,14 @@ public class MemberSerivceImpl implements MemberSerivce {
 		return result;
 	}
 
+	
+
+	@Override
+	public MemberVO getMember(MemberVO vo) {
+		MemberVO member = memberDAO.getMember(vo);
+		return member;
+	}
+
 	@Override
 	public int idChk(MemberVO vo) {
 		int result = memberDAO.idchk(vo);

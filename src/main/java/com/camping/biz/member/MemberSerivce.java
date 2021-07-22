@@ -9,5 +9,7 @@ public interface MemberSerivce {
 	
 	boolean getLogin(MemberVO vo);
 	
+	MemberVO getMember(MemberVO vo);
+	
 	int idChk(MemberVO vo);
 }

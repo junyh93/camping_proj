@@ -5,12 +5,12 @@
 <title>로그인</title>
 <link type="text/css" href="<c:url value='/css/login.css'/>"  rel="stylesheet" >
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(function(){
     
     $('button').click(function(){
-    	  var memId = $('#memId').val();
-    	  var memPw = $('#memPw').val();
+    	  var Id = $('#Id').val();
+    	  var Pw = $('#Pw').val();
     	  alert('버튼 작동');
       	$.ajax({
     		url:'login.do',
@@ -30,16 +30,16 @@ $(function(){
 });
 
 </script>
-
+ -->
 <div class="main-container">
 		<div class="main-wrap">
 		<section class="login-input-section-wrap">
-		<form >
+		<form action="<c:url value='login.do'/>" method="post">
 			<div class="login-input-wrap">	
-				<input name="memId" id="memId" placeholder="Username" type="text"></input>
+				<input name="id"  placeholder="Username" type="text"></input>
 			</div>
 			<div class="login-input-wrap password-wrap">	
-				<input name="memPw" id="memPw" placeholder="Password" type="password"></input>
+				<input name="pw"  placeholder="Password" type="password"></input>
 			</div>
 			<div class="login-button-wrap">
 				<button type="submit" >Sign in</button>

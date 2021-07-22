@@ -32,6 +32,11 @@ public class MemberDAO extends SqlSessionDaoSupport{
 		return (result == null) ? false : true;
 	}
 	
+	public MemberVO getMember (MemberVO vo) {
+		return getSqlSession().selectOne("MemberDAO.getLogin", vo);
+		
+	}
+	
 	public int idchk(MemberVO vo) {
 		return getSqlSession().selectOne("MemberDAO.idChk", vo);
 	}

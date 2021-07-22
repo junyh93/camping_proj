@@ -3,7 +3,7 @@
 <mapper namespace="AdminDAO">
 	<select id="getLogin" resultType="admin">
 		<![CDATA[
-			select * from admin where adId=#{adId} and adPw=#{adPw}
+			select * from admin where adId=#{id} and adPw=#{pw}
 		]]>
 	</select>
 </mapper>

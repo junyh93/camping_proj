@@ -28,7 +28,7 @@
 	<!--로그인  -->
 	<select id="getLogin" resultType="member">
 		<![CDATA[
-			select * from member where memId=#{memId} and memPw=#{memPw}
+			select * from member where memId=#{getid} and memPw=#{getpw}
 		]]>
 	</select>
 	

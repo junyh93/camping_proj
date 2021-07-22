@@ -1,22 +1,22 @@
 package com.camping.view.member;
 
-import java.net.http.HttpRequest;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.maven.shared.invoker.SystemOutHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.camping.biz.admin.AdminService;
+import com.camping.biz.admin.AdminVO;
 import com.camping.biz.certification.CertificationService;
 import com.camping.biz.member.MemberSerivce;
 import com.camping.biz.member.MemberVO;
@@ -25,9 +25,9 @@ import com.camping.biz.member.MemberVO;
 public class MemberController {
 	@Autowired
 	private MemberSerivce memberService;
-	
-	@Autowired 
+	private AdminService adminService;
 	private CertificationService certificationService;
+	
 	
 	//회원가입 페이지 이동
 	@RequestMapping(value = "/join.do", method = RequestMethod.GET)
@@ -70,41 +70,72 @@ public class MemberController {
 	}
 	
 	//로그인 
-	@ResponseBody
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public boolean login(@RequestParam("memId") String memId,
-			@RequestParam("memPw") String memPw, MemberVO vo, HttpSession session ,Model model) throws Exception {
+	public String login(@RequestParam("id") String id, @RequestParam("pw") String pw,
+					MemberVO vo, AdminVO ad, HttpSession session, HttpServletRequest request , Model model){
 		System.out.println("로그인 처리 중 ");
 		
-		boolean result = memberService.getLogin(vo);
+		String getid = request.getParameter(id);
+		String getpw = request.getParameter(pw);
+		System.out.println(getid);
+		String msg = "로그인 실패";
+		String url = "login.do";
+		String cm = "";
 		
-		try {
+		//amdin 로그인 처리
+		if(id.length() < 6) {
+			ad.setAdId(getid);
+			ad.setAdPw(getpw);
+			
+			boolean result = adminService.getLogin(ad);
+			
 			if(result == true) {
-				 System.out.println("로그인 성공");
+				System.out.println("admin 로그인 성공");
 				
-				 session.setAttribute("memId",vo.getMemId()); 
-				 session.setAttribute("memNo", vo.getMemNo());
+				msg="로그인 성공";
+				url = "/main.do";
 				 
-				 vo.setMemId(memId);
-				 vo.setMemNo(vo.getMemNo());
+				session.setAttribute("adId",ad.getAdId()); 
+				session.setAttribute("adNo", ad.getAdNo());
+				
+				model.addAttribute("msg",msg);
+				model.addAttribute("url",url);
 				 
-				 // 세션 유지시간 1시간 
-				 session.setMaxInactiveInterval(60*60);
-				 
-				 model.addAttribute("result", result);
+				cm = "common/message";
+			}
+			
 		}else {
-			  System.out.println("로그인 실패");
-			  
-			  model.addAttribute("result", result);
+		//member 로그인 처리
+			System.out.println(getid);
+			
+			vo.setMemId(getid);
+			vo.setMemPw(getpw);
+			
+			boolean result = memberService.getLogin(vo);
+			
+			if(result == true) {
+				System.out.println("member 로그인 성공");
+				System.out.println(vo);
+				
+				MemberVO member = memberService.getMember(vo);
+				
+				msg="로그인 성공";
+				url = "/main.do";
+
+				session.setAttribute("memId",member.getMemId()); 
+				session.setAttribute("memNo",member.getMemNo());
+						 
+				// 세션 유지시간 1시간 
+				session.setMaxInactiveInterval(60*60);
+						 
+				model.addAttribute("msg",msg);
+				model.addAttribute("url",url);
+						 
+				cm = "common/message";
+			}
+		}
 		
-		}
-		}catch (Exception e){
-			throw new RuntimeException();
-		}
-		 return result;
-			/*return "main";
-			 *  return "login/login"; 
-			 */		 
+		return cm;
 	}
 	
 	//마이페이지 이동

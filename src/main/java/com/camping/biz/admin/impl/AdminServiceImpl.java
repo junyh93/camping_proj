@@ -13,8 +13,8 @@ public class AdminServiceImpl implements AdminService {
 	private AdminDAO adminDAO;
 	
 	@Override
-	public AdminVO getLogin(AdminVO ad) {
-		AdminVO admin = adminDAO.getLogin(ad);
+	public boolean getLogin(AdminVO ad) {
+		boolean admin = adminDAO.getLogin(ad);
 		return admin;
 	}
 }
