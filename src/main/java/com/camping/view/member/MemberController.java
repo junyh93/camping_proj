@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.maven.shared.invoker.SystemOutHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,8 +28,7 @@ public class MemberController {
 	private AdminService adminService;
 	@Autowired
 	private CertificationService certificationService;
-	
-	
+
 	//회원가입 페이지 이동
 	@RequestMapping(value = "/join.do", method = RequestMethod.GET)
 	public String joinPage() {
@@ -38,6 +36,7 @@ public class MemberController {
 		
 	}
 	
+	//아이디 중복 체크
 	@ResponseBody
 	@RequestMapping(value="/idChk.do", method = RequestMethod.POST)
 	public int idChk(MemberVO vo) throws Exception{
@@ -114,6 +113,7 @@ public class MemberController {
 			vo.setGetPw(getPw);
 			System.out.println(vo);
 			boolean result = memberService.getLogin(vo);
+			System.out.println(result);
 			
 			if(result == true) {
 				System.out.println("member 로그인 성공");
@@ -136,12 +136,17 @@ public class MemberController {
 				model.addAttribute("url",url);
 						 
 				cm = "common/message";
+			}else if(result == false){
+				
+				model.addAttribute("msg",msg);
+				model.addAttribute("url",url);
+				
+				cm="common/message";
 			}
 		}
-		
 		return cm;
 	}
-	
+
 	//마이페이지 이동
 	@RequestMapping(value="/mypage.do", method = RequestMethod.GET)
 	public String myPage() {
@@ -175,7 +180,66 @@ public class MemberController {
 	   return certNum;
 	}
 	
+	//아이디 찾기 페이지 이동
+	@RequestMapping(value="/findid.do", method = RequestMethod.GET)
+	public String findIdGET() {
+		return "login/findid";
+	}
+	
+	//아이디 찾기
+	@ResponseBody
+	@RequestMapping(value="/findid.do", method = RequestMethod.POST)
+	public String findIdPOST(@RequestParam("name") String name, @RequestParam("phone") String phone, MemberVO vo) throws Exception{
+		System.out.println("아이디 찾기 처리 중");
+		System.out.println(name + ""+ phone);
+		
+		String msg = "로그인 실패";
 
+		vo.setMemName(name);
+		vo.setMemPhone(phone);
+		
+		System.out.println(vo);
+		MemberVO member = memberService.findId(vo);
+		
+		System.out.println(member);
+		
+		if(member == null) {
+			System.out.println("아이디 없음");
+			
+			msg = "가입된 아이디가 없습니다.";
+
+		}else {
+			System.out.println(member + "아이디 있음");
+			
+			msg = member.getMemId(); 
+			System.out.println(msg);	
+		}
+		return msg;
+	}
+	
+	//비밀번호 찾기 페이지 이동
+	@RequestMapping(value="/findpw.do", method = RequestMethod.GET)
+	public String findPwGET() {
+		return "login/findpw";
+	}
+	
+	//비밀번호 찾기
+	@ResponseBody
+	@RequestMapping(value="/findpw.do", method= RequestMethod.POST)
+	public int findPwPOST(@RequestParam("id") String id, @RequestParam("email") String email, MemberVO vo) throws Exception {
+		System.out.println("비밀번호 찾기 처리 중");
+		System.out.println(id);
+		System.out.println(email);
+		
+		vo.setMemId(id);
+		vo.setMemEmail(email);
+		
+		int num = memberService.findPw(vo);
+		
+		System.out.println(vo);
+
+		return num;
+	}
 	
 	public String updateMember() {
 		

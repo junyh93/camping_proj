@@ -1,0 +1,94 @@
+@charset "UTF-8";
+*{
+	font-family:'G마켓 산스';
+	font-weight: normal; 
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background: #fff;
+}
+.main_container{
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	margin-top: 100px;
+	text-align: center;
+}
+#header{
+	text-align: center;
+	font-size: 25px;
+ 	font-weight: bolder;
+}
+.main_wrap{
+	width:768px;
+}
+.find_input{
+	padding: 30px 0 25px 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.label{
+	float: left;
+ 	margin-top: 7px;
+ 	font-size: 20px;
+ 	font-weight: bolder;
+ 	color:black;
+}
+.find_input_id{
+	width: 465px;
+	height :48px;
+	background: white;
+	margin-left: 38px;
+}
+.find_input_id input{
+	border: none;
+	width:370px;
+	margin-top: 5px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:45px;
+		border: solid 1px #dadada;
+}
+.find_input_pw{
+	width: 465px;
+	height :48px;
+	background: white;
+	margin-top: 10px;
+	
+}
+.find_input_pw input{
+	border: none;
+	width:370px;
+	margin-top: 5px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:45px;
+		border: solid 1px #dadada;
+}
+.find_btn{
+		padding-top: 13px;
+	  width: 465px;
+	  height :48px;
+}
+.mybtn{
+  width:230px;
+  height:40px;
+  padding:0;
+  display:inline; 
+ /*  border-radius: 4px; */ 
+  background: DarkGray;
+  color: #fff;
+  font-size: 20px;
+  margin-top: 20px;
+  border: solid 2px DarkGray; 
+  transition: all 0.5s ease-in-out 0s;
+}
+.mybtn:hover .mybtn:focus {
+  background: white;
+  color: #212529;
+  text-decoration: none;
+}

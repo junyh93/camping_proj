@@ -383,11 +383,11 @@ $(function(){
                     <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
                     <div class="box int_mobile" style="text-align: right ;">
                     	
-                        <input type="text" id="mobile" name="memPhone" class="int" maxlength="11" placeholder="'-'없이 숫자만 입력">
+                        <input type="text" id="mobile" name="memPhone" class="int" maxlength="20" placeholder="'-'없이 숫자만 입력">
                     	<input  type="button" id="sendTelNumBtn" value="인증하기">
                     </div><br/>
                       <div class="box int_mobile" style="text-align: right;">
-                        <input type="text" id="certNum" name="sms" class="int" maxlength="16" placeholder="인증번호 입력">
+                        <input type="text" id="certNum" name="sms" class="int" maxlength="20" placeholder="인증번호 입력">
 						<input  type="button" id="certNumBtn" value="입력하기">
                     </div>
                     <span class="error_next_box"></span>    

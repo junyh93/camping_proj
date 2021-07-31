@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ReviewDAO">
+
+	<insert id="insertReview">
+	 <!-- 시퀀스 값을 가져와서 rvNo컬럼에 넣어준다 -->
+	<selectKey keyProperty="rvNo" resultType="int" order="BEFORE">
+		select rvSeq.nextval from dual
+	</selectKey>
+
+			insert into review(rvNo, rvDate, rvTitle, rvContent, rvImg,rvStar, contentId, addr, facltNm, lineIntro, tel, homePage, imgUrl,mapX, mapY, memNo, memId)
+			values(#{rvNo}, #{rvDate}, #{rvTitle}, #{rvContent}, #{rvImg},#{rvStar}, #{contentId}, #{addr}, #{facltNm}, #{lineIntro}, #{tel}, #{homePage}, #{imgUrl},#{mapX}, #{mapY}, #{memNo}, #{memId})
+	
+	</insert>
+	
+	<!-- 후기 수정 -->
+	<update id="updateReview">
+		<![CDATA[
+			update review set rvTtile=#{rvTitle}, rvContent=#{rvContent}, rvImg=#{rvImg}, rvDate=#{rvDate} where memNo=#{memNo}
+		]]>
+	</update>
+	
+	<delete id="deleteReview">
+		<![CDATA[
+			delete review where rvNo=#{rvNo} and memNo=#{memNo}
+		]]>
+	</delete>
+	
+	<!-- 상세보기  -->
+	<select id="getReview" resultType="review">
+		<![CDATA[
+			select * from review where rvNo=#{rvNo}
+		]]>
+	</select>
+	
+	<!-- 후기 페이지 -->
+	<select id="getReviewList" resultType="review">
+	<![CDATA[
+		select * from review order by rvNo desc
+	]]>
+	</select>
+	
+</mapper>

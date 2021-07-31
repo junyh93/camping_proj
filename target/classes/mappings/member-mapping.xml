@@ -13,11 +13,20 @@
 		
 	</insert>
 	
+	<!-- 회원 정보 수정 -->
 	<update id="updateMember">
 		<![CDATA[
 			update member set name=#{name}, mobile=#{mobile}, email=#{email} where id=#{id}
 		]]>
 	</update>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="updatePw">
+		<![CDATA[
+			update member set memPw=#{memPw} where memId=#{memId}
+		]]>
+	</update>
+	
 	
 	<delete id="deleteMember">
 		<![CDATA[
@@ -36,6 +45,20 @@
 	<select id="idChk" resultType="int">
 		<![CDATA[
 			select count(*) from member where memId=#{memId}
+		]]>
+	</select>
+	
+	<!-- 아이디 찾기 -->
+	<select id="findId" resultType="member">
+		<![CDATA[
+			select memId from member where memName=#{memName} and memPhone=#{memPhone}
+		]]>
+	</select>
+	
+	<!-- 비밀번호 찾기 (email 일치 확인)-->
+	<select id="findPw" resultType="int">
+		<![CDATA[
+			select count(*) from member where memEmail=#{memEmail}
 		]]>
 	</select>
 </mapper>

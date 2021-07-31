@@ -8,12 +8,14 @@
 	<typeAliases><!-- com.springbook.biz.board.BoardVO를 별칭을 사용해 board로 만들어서 간단하게 표기할 수 있게했다 -->
 		<typeAlias alias="member" type="com.camping.biz.member.MemberVO"/>
 		<typeAlias alias="admin" type="com.camping.biz.admin.AdminVO"/>
+		<typeAlias alias="review" type="com.camping.biz.review.ReviewVO"/>
 	</typeAliases>
 
 	<!-- Sql Mapper 설정 -->
 	<mappers><!-- MyBatis에게 어떤 파일을 봐야하는지 알려줌 -->
 		<mapper resource="mappings/member-mapping.xml"/>
 		<mapper resource="mappings/admin-mapping.xml"/>
+		<mapper resource="mappings/review-mapping.xml"/>
 	</mappers>
 
 </configuration>

@@ -1,0 +1,130 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	font-family:'G마켓 산스';
+	font-weight: normal; 
+}
+
+body{
+	background:#fff;
+	margin: 0;
+    height: 100%;
+
+}
+section {
+    width: 100%;
+    min-height: 1000px;
+}
+#header {
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	margin-top: 21px;
+	font-size: 40px;
+}
+#wrapper {
+    position: relative;
+    height: 100%;
+}
+
+#content {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 460px;
+}
+
+/* 입력폼 */
+
+
+h2 {
+    margin: 19px 0 8px;
+    font-size: 10px;
+    font-weight: 700;
+}
+.starR1{
+    background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat -52px 0;
+    background-size: auto 100%;
+    width: 15px;
+    height: 30px;
+    float:left;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+.starR2{
+    background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+    background-size: auto 100%;
+    width: 15px;
+    height: 30px;
+    float:left;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+.starR1.on{background-position:0 0; }
+.starR2.on{background-position:-15px 0; }
+
+.box {
+    display: block;
+    width: auto;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 12px 10px 12px;
+    box-sizing: border-box;
+    background: #fff;
+    position: relative;
+}
+
+.int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 29px;
+    border: none;
+    background: #fff;
+    font-size: 15px;
+}
+
+.box.int_id {
+    padding-right: 110px;
+}
+
+.box.int_pass {
+    padding-right: 40px;
+}
+
+.box.int_pass_check {
+    padding-right: 40px;
+}
+
+select {
+    width: 100%;
+    height: 29px;
+    font-size: 15px;
+    background-size: 20px 8px;
+    -webkit-appearance: none;
+    display: inline-block;
+    text-align: start;
+    border: none;
+    cursor: default;
+    font-family: 'Jua', sans-serif;
+}
+/* 버튼 */
+
+.btn_area {
+    margin: 30px 0 91px;
+}
+
+#btnJoin {
+    width: 100%;
+    padding: 21px 0 17px;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    background-color: #b0c82b;
+    font-size: 20px;
+    font-weight: 400;
+    font-family:  'Jua', sans-serif;
+}
