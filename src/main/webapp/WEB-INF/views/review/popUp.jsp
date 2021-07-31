@@ -40,11 +40,17 @@ $(function(){
 			var i = '';
 			var ar = "";
 			var result = "";
-			$.each(item, function(i){
-				str += '<tr class="k"'+ i +'><td>'+ (i+1) +'</td><td>'+ item[i].facltNm + '</td><td>' + item[i].addr1 +'</td><td style="visibility:hidden;">'+ item[i].contentId +'</td><td style="visibility:hidden;">' + item[i].lineIntro + '</td><td style="visibility:hidden;">' + item[i].tel + '</td><td style="visibility:hidden;">' + item[i].homepage + '</td><td style="visibility:hidden;">'+item[i].firstImageUrl+'</td><td style="visibility:hidden;">' + item[i].mapX + '</td><td style="visibility:hidden;">' + item[i].mapY + '</td>';
-				str += '</tr>';		
-			});
 			
+			
+			if(Array.isArray(item)){
+				$.each(item, function(i){
+					str += '<tr class="k"'+ i +'><td>'+ (i+1) +'</td><td>'+ item[i].facltNm + '</td><td>' + item[i].addr1 +'</td><td style="visibility:hidden;">'+ item[i].contentId +'</td><td style="visibility:hidden;">' + item[i].lineIntro + '</td><td style="visibility:hidden;">' + item[i].tel + '</td><td style="visibility:hidden;">' + item[i].homepage + '</td><td style="visibility:hidden;">'+item[i].firstImageUrl+'</td><td style="visibility:hidden;">' + item[i].mapX + '</td><td style="visibility:hidden;">' + item[i].mapY + '</td>';
+					str += '</tr>';		
+				});
+			}else{
+				str += '<tr class="k"><td>'+ 1 +'</td><td>'+ item.facltNm + '</td><td>' + item.addr1 +'</td><td style="visibility:hidden;">'+ item.contentId +'</td><td style="visibility:hidden;">' + item.lineIntro + '</td><td style="visibility:hidden;">' + item.tel + '</td><td style="visibility:hidden;">' + item.homepage + '</td><td style="visibility:hidden;">'+item.firstImageUrl+'</td><td style="visibility:hidden;">' + item.mapX + '</td><td style="visibility:hidden;">' + item.mapY + '</td>';
+				str += '</tr>';		
+			}
 			
 			$('.item').html(str);
 			
