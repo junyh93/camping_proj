@@ -21,7 +21,7 @@
 		<beans:property name="exceptionMappings">
 			<beans:props>
 				<beans:prop key="java.lang.IllegalArgumentException">
-					common/arithmeticError.jsp
+					common/arithmeticError
 				</beans:prop>
 				<beans:prop key="java.lang.NullPointerException">
 					common/NullPointerError

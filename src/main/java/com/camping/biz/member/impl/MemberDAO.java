@@ -23,6 +23,10 @@ public class MemberDAO extends SqlSessionDaoSupport{
 		getSqlSession().update("MemberDAO.updateMember", vo);
 	}
 	
+	public void updatePw(MemberVO vo) {
+		getSqlSession().update("MemberDAO.updatePw", vo);
+	}
+	
 	public void deleteMember(MemberVO vo) {
 		getSqlSession().delete("MemberDAO.deleteMember", vo);
 	}
@@ -39,5 +43,13 @@ public class MemberDAO extends SqlSessionDaoSupport{
 	
 	public int idchk(MemberVO vo) {
 		return getSqlSession().selectOne("MemberDAO.idChk", vo);
+	}
+	
+	public MemberVO findId(MemberVO vo) {
+		return getSqlSession().selectOne("MemberDAO.findId", vo);
+	}
+	
+	public int findPw(MemberVO vo) {
+		return getSqlSession().selectOne("MemberDAO.findPw",vo);
 	}
 }

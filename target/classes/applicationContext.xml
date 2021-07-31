@@ -52,15 +52,14 @@
 	</bean>
 	 
 
-	
-	<!-- Gmail 메일 보내기(SEND)
+	<!-- Gmail 메일 보내기(SEND)		-->
   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
     <property name="host" value="smtp.gmail.com" />
     <property name="port" value="587" />
     <property name="username" value="junyh93@gmail.com" />
     <property name="password" value="vkwjs7935" />
     <property name="defaultEncoding" value="utf-8" />
-   email 요청시는 SMTP  
+   <!-- email 요청시는 SMTP   -->
     <property name="javaMailProperties">
     <props>
       <prop key="mail.transport.protocol">smtp</prop>
@@ -70,7 +69,7 @@
     </props>
     </property>
   </bean>
-		-->
+
 	
 </beans>
 

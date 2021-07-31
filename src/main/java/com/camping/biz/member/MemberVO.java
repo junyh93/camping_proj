@@ -9,6 +9,7 @@ public class MemberVO {
 	private String memEmail;
 	private String memPhone;
 	private int memType;
+	//admin과 member를 한 로그인에 페이지에서 동작시키기 위한 통합 getter,setter 생성
 	private String getId;
 	private String getPw;
 	
