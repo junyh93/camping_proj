@@ -89,7 +89,7 @@
 	    function openChild() {
 	        // window.open("open할 window", "자식창 이름", "팝업창 옵션");
 	        openWin = window.open("popUp.do",
-	        		"", "width=1000, height=600");    
+	        		"", "width=650, height=600");    
 	    }
 	});
 </script>
