@@ -111,6 +111,30 @@ $(function(){
 
 </script>
 
+<script type="text/javascript">
+$(function(){
+	
+
+		var rvImg = $("#rvImg").val();
+		
+		var name0 = rvImg.split(",")[0];
+		var name1 = rvImg.split(",")[1];
+		var name2 = rvImg.split(",")[2];
+		var name3 = rvImg.split(",")[3];
+		var name4 = rvImg.split(",")[4];
+		
+		alert(name0 + name1);
+		if(name0 != ""){
+			$('.img_container').append("<div><img src='<c:url value='./reviewUpload/"+name0+"'/>'/></div>");
+		} 
+		if(name1 != ""){
+				$(".img_container").append("<div><img src='<c:url value='./reviewUpload/"+name1+"'/>'/></div>");
+		}
+		
+		
+});
+</script>
+
 <section class="main">
 	<input type="hidden" id="mapX" value="${review.mapX }">
 	<input type="hidden" id="mapY" value="${review.mapY }">
@@ -144,12 +168,15 @@ $(function(){
     </div>
 	
 	<!-- 후기 사진 최대 5장 -->
+	<input type="hidden" id="rvImg" value="${review.rvImg }">
 	<div class="img_container">
-		<div class="img_main"><img src="<c:url value='./reviewUpload/${review.rvImg.split(",")[0] }'/>"/></div>
+<%-- 		<div class="img_main"><img src="<c:url value='./reviewUpload/${review.rvImg.split(",")[0] }'/>"/></div>
 	
 		<div class="img_sub">
 			<div class="img_1"><img src="<c:url value='./reviewUpload/${review.rvImg.split(",")[1] }'/>"/></div>
 		</div>
+		 --%>
+		
 	</div>
 	
 	<!-- 후기 내용 -->
