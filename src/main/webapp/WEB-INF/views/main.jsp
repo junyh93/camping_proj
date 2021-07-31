@@ -2,10 +2,30 @@
 	pageEncoding="UTF-8"%>
 <%@include file="common/headerMain.jsp" %>
 
-<script>
-	$(document).ready(function() {
+
+<script type="text/javascript">
+var value1 = new Array("강남구", "강서구", "강동구");
+	$(function(){
 		$("#c_do").change(function() {
-			$.ajax({
+			if($("#c_do option:selected").val() == 1){
+			
+			
+				var str = "<option value=''>"+전체+"</option>";
+		 		
+				$.each(value1, function(i) {
+					str += "<option value=" + jsonData[i] + ">" + jsonData[i] + "</option>";
+				});
+
+				$("#c_signgu").empty();
+				$("#c_signgu").html(str);
+				
+			}
+			
+		});
+			
+	});		
+			
+/* 			$.ajax({
 				type : "get",
 				url : "/bsite/area/ctprvn/lwprt/list.do",
 				data : {
@@ -24,21 +44,21 @@
 				error : function(xhr, status, error) {
 					alert("오류가 발생하였습니다.\n관리자에게 문의해주세요.");
 				}
-			});
-		});
+			}); 
+		;*/
 
-		$("#searchForm2ResetBtn").click(function() {
+/* 		$("#searchForm2ResetBtn").click(function() {
 			$("#campSearchForm2").find("input:checkbox").attr("checked", false);
 			$("#slider-range").slider("values", 0, 0);
 			$("#slider-range").slider("values", 1, 100000);
 			$("#searchMummPc").val(0);
-			$("#searchMxmmPc").val(100000);
-		});
+			$("#searchMxmmPc").val(100000); */
+		
 		
 		
 		
 		//출발지 검색화면 이동
-		function funArrvFocSrch(){
+		/* function funArrvFocSrch(){
 
 			var searchKrwd_f = $("#searchKrwd_f").val();
 		    var select_01 = $("#select_01").val();
@@ -58,9 +78,9 @@
 		}
 			error: function(xhr, status, error){
 				alert(status + ", " + error);
-			}
+			} 
 		
-	});
+	});*/
 </script>
 
 <section>

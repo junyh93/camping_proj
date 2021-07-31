@@ -130,7 +130,15 @@ $(function(){
 		if(name1 != ""){
 				$(".img_container").append("<div><img src='<c:url value='./reviewUpload/"+name1+"'/>'/></div>");
 		}
-		
+		if(name2 != ""){
+			$(".img_container").append("<div><img src='<c:url value='./reviewUpload/"+name2+"'/>'/></div>");
+		}
+		if(name3 != ""){
+			$(".img_container").append("<div><img src='<c:url value='./reviewUpload/"+name3+"'/>'/></div>");
+		}
+		if(name4 != ""){
+			$(".img_container").append("<div><img src='<c:url value='./reviewUpload/"+name4+"'/>'/></div>");
+		}
 		
 });
 </script>
