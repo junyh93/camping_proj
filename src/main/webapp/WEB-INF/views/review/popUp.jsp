@@ -44,27 +44,62 @@ $(function(){
 			//item이 배열형일 경우
 			if(Array.isArray(item)){
 				$.each(item, function(i){
-					str += '<tr class="k"'+ i +'><td>'+ (i+1) +'</td><td>'+ item[i].facltNm + '</td><td>' + item[i].addr1 +'</td><td style="visibility:hidden;">'+ item[i].contentId +'</td><td style="visibility:hidden;">' + item[i].lineIntro + '</td><td style="visibility:hidden;">' + item[i].tel + '</td><td style="visibility:hidden;">' + item[i].homepage + '</td><td style="visibility:hidden;">'+item[i].firstImageUrl+'</td><td style="visibility:hidden;">' + item[i].mapX + '</td><td style="visibility:hidden;">' + item[i].mapY + '</td>';
-					str += '</tr>';		
+					
+					str += '<div class="inf"' + i + '>';
+					str += '<div style="width: 30px; float:left;">' + (i+1) + '</div>'; //순서
+					str += '<input type="text" readonly="readonly" style="width:230px; border:none; outline:none;" value="' + item[i].facltNm + '">'; //시설명
+					str += '<input type="text" readonly="readonly" style="width:340px; border:none; outline:none;" value="' + item[i].addr1 + '">'; //시설주소
+					str += '<input type="hidden" value="' + item[i].contentId + '">'; //컨텐트아이디
+					str += '<input type="hidden" value="' + item[i].lineIntro + '">'; //한줄소개
+					str += '<input type="hidden" value="' + item[i].tel + '">'; //전화번호
+					str += '<input type="hidden" value="' + item[i].homepage + '">'; //홈페이지
+					str += '<input type="hidden" value="' + item[i].firstImageUrl + '">'; //첫이미지경로
+					str += '<input type="hidden" value="' + item[i].mapX + '">'; //위치정보
+					str += '<input type="hidden" value="' + item[i].mapY + '">'; //위치정보
+					str += '</div>'
 				});
-			}else{//item이 하나의 값만 가질 경우
-				str += '<tr class="k"><td>'+ 1 +'</td><td>'+ item.facltNm + '</td><td>' + item.addr1 +'</td><td style="visibility:hidden;">'+ item.contentId +'</td><td style="visibility:hidden;">' + item.lineIntro + '</td><td style="visibility:hidden;">' + item.tel + '</td><td style="visibility:hidden;">' + item.homepage + '</td><td style="visibility:hidden;">'+item.firstImageUrl+'</td><td style="visibility:hidden;">' + item.mapX + '</td><td style="visibility:hidden;">' + item.mapY + '</td>';
-				str += '</tr>';		
+				
+			//item이 하나의 값만 가질 경우	
+			}else{
+				i = 0;
+				str += '<div class="inf"' + i + '>';
+				str += '<div style="width: 30px; float:left;">' + (i+1) + '</div>'; //순서
+				str += '<input type="text" readonly="readonly" style="width:230px; border:none; outline:none;" value="' + item.facltNm + '">'; //시설명
+				str += '<input type="text" readonly="readonly" style="width:340px; border:none; outline:none;" value="' + item.addr1 + '">'; //시설주소
+				str += '<input type="hidden" value="' + item.contentId + '">'; //컨텐트아이디
+				str += '<input type="hidden" value="' + item.lineIntro + '">'; //한줄소개
+				str += '<input type="hidden" value="' + item.tel + '">'; //전화번호
+				str += '<input type="hidden" value="' + item.homepage + '">'; //홈페이지
+				str += '<input type="hidden" value="' + item.firstImageUrl + '">'; //첫이미지경로
+				str += '<input type="hidden" value="' + item.mapX + '">'; //위치정보
+				str += '<input type="hidden" value="' + item.mapY + '">'; //위치정보
+				str += '</div>'
+
 			}
 			
 			$('.item').html(str);
 			
+			$('.inf' + i).hover(function(){
+				$(this).children().eq(0).css('color','gray'); //숫자
+				$(this).children().eq(1).css('color','gray'); //시설명
+				$(this).children().eq(2).css('color','gray'); //시설주소		
+		    		}, function() {
+    			$(this).children().eq(0).css('color','black');
+				$(this).children().eq(1).css('color','black');
+				$(this).children().eq(2).css('color','black');
+			});
+			
 			/* 캠핑장명 저장 */
-			$('.k' + i).click(function(){
-				facltNm = $(this).children().eq(1).text();
-				addr = $(this).children().eq(2).text();
-				contentId = $(this).children().eq(3).text();
-				lineIntro = $(this).children().eq(4).text();
-				tel = $(this).children().eq(5).text();
-				homePage = $(this).children().eq(6).text();
-				imgUrl = $(this).children().eq(7).text();
-				mapX = $(this).children().eq(8).text();
-				mapY = $(this).children().eq(9).text();
+			$('.inf' + i).click(function(){
+				facltNm = $(this).children().eq(1).val();
+				addr = $(this).children().eq(2).val();
+				contentId = $(this).children().eq(3).val();
+				lineIntro = $(this).children().eq(4).val();
+				tel = $(this).children().eq(5).val();
+				homePage = $(this).children().eq(6).val();
+				imgUrl = $(this).children().eq(7).val();
+				mapX = $(this).children().eq(8).val();
+				mapY = $(this).children().eq(9).val();
 				
 				result = confirm(facltNm + "으로 하시겠습니까?");
 				
@@ -98,7 +133,9 @@ $(function(){
 	  	<input type="text" class="keyword2" id="searchKrwd_f" name="searchKrwd" placeholder="검색어를 입력하세요.">
             <button type="button" id="search">검색하기</button>
 		</div>
-		<div><table class="item"></table></div>
+		<div class=item></div>
+		
+		
 </body>
 		
 
