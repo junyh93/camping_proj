@@ -1,0 +1,220 @@
+/* 새 테이블 */
+CREATE TABLE member (
+	memNo NUMBER NOT NULL, /* 새 컬럼 */
+	memId VARCHAR2(100), /* 새 컬럼2 */
+	memPw VARCHAR2(100), /* 새 컬럼3 */
+	memName VARCHAR2(100), /* 새 컬럼4 */
+	memEmail VARCHAR2(100), /* 새 컬럼5 */
+	memPhone VARCHAR2(100), /* 새 컬럼6 */
+	memType NUMBER /* 새 컬럼7 */
+);
+
+ALTER TABLE member
+	ADD
+		CONSTRAINT PK_member
+		PRIMARY KEY (
+			memNo
+		);
+
+/* 새 테이블2 */
+CREATE TABLE business (
+	bisNo NUMBER NOT NULL, /* 새 컬럼 */
+	bisNum VARCHAR2(100), /* 새 컬럼2 */
+	memNo NUMBER /* 새 컬럼3 */
+);
+
+ALTER TABLE business
+	ADD
+		CONSTRAINT PK_business
+		PRIMARY KEY (
+			bisNo
+		);
+
+/* 새 테이블3 */
+CREATE TABLE admin (
+	adNo NUMBER NOT NULL, /* 새 컬럼 */
+	adId VARCHAR2(100), /* 새 컬럼2 */
+	adPw VARCHAR2(100), /* 새 컬럼3 */
+	adName VARCHAR2(100) /* 새 컬럼4 */
+);
+
+ALTER TABLE admin
+	ADD
+		CONSTRAINT PK_admin
+		PRIMARY KEY (
+			adNo
+		);
+
+/* 새 테이블4 */
+CREATE TABLE book (
+	bkNo NUMBER NOT NULL, /* 새 컬럼 */
+	bkStartDate DATE, /* 새 컬럼2 */
+	bkEndDate DATE, /* 새 컬럼3 */
+	bkDate DATE, /* 새 컬럼4 */
+	contentId VARCHAR2(100), /* 새 컬럼5 */
+	memNo NUMBER /* 새 컬럼6 */
+);
+
+ALTER TABLE book
+	ADD
+		CONSTRAINT PK_book
+		PRIMARY KEY (
+			bkNo
+		);
+
+/* 새 테이블5 */
+CREATE TABLE review (
+	rvNo NUMBER NOT NULL, /* 새 컬럼 */
+	rvDate DATE, /* 새 컬럼2 */
+	rvTitle VARCHAR2(100),
+	rvContent VARCHAR2(500), /* 새 컬럼3 */
+	rvImg VARCHAR2(500),
+	rvStar NUMBER, /* 새 컬럼4 */
+	contentId NUMBER, /* 새 컬럼5 */
+	memNo NUMBER /* 새 컬럼6 */
+);
+
+ALTER TABLE review
+	ADD
+		CONSTRAINT PK_review
+		PRIMARY KEY (
+			rvNo
+		);
+////////
+/* 새 테이블5 */
+CREATE TABLE review (
+	rvNo NUMBER NOT NULL, /* 새 컬럼 */
+	rvDate DATE, /* 새 컬럼2 */
+	rvTitle VARCHAR2(100),
+	rvContent VARCHAR2(500), /* 새 컬럼3 */
+	rvImg VARCHAR2(500),
+	rvStar NUMBER, /* 새 컬럼4 */
+	contentId NUMBER, /* 새 컬럼5 */
+	memNo NUMBER, /* 새 컬럼6 */
+    memId VARCHAR2(100),
+    addr NUMBER,
+    facltNm varchar2(100),
+    lineIntro VARCHAR2(500),
+    tel VARCHAR2(100),
+    homePage VARCHAR2(500),
+    mapX NUMBER,
+    mapY NUMBER    
+);
+
+ALTER TABLE review
+	ADD
+		CONSTRAINT PK_review
+		PRIMARY KEY (
+			rvNo
+		);
+
+
+
+
+/* 새 테이블6 */
+CREATE TABLE qna (
+	qnaNo NUMBER NOT NULL, /* 새 컬럼 */
+	qnaTitle VARCHAR2(100), /* 새 컬럼2 */
+	qnaContent VARCHAR2(500), /* 새 컬럼3 */
+	qnaDate DATE, /* 새 컬럼4 */
+	memNo NUMBER /* 새 컬럼5 */
+);
+
+ALTER TABLE qna
+	ADD
+		CONSTRAINT PK_qna
+		PRIMARY KEY (
+			qnaNo
+		);
+
+ALTER TABLE business
+	ADD
+		CONSTRAINT FK_member_TO_business
+		FOREIGN KEY (
+			memNo
+		)
+		REFERENCES member (
+			memNo
+		);
+
+ALTER TABLE book
+	ADD
+		CONSTRAINT FK_member_TO_book
+		FOREIGN KEY (
+			memNo
+		)
+		REFERENCES member (
+			memNo
+		);
+
+ALTER TABLE review
+	ADD
+		CONSTRAINT FK_member_TO_review
+		FOREIGN KEY (
+			memNo
+		)
+		REFERENCES member (
+			memNo
+		);
+
+ALTER TABLE qna
+	ADD
+		CONSTRAINT FK_member_TO_qna
+		FOREIGN KEY (
+			memNo
+		)
+		REFERENCES member (
+			memNo
+		);
+
+CREATE TABLE rv_comment(
+    comNo NUMBER,
+    rvNo NUMBER,
+    memId VARCHAR2(100),
+    memNo NUMBER,
+    comContent VARCHAR2(500),
+    comDate DATE
+);
+
+ALTER TABLE rv_comment
+	ADD
+		CONSTRAINT PK_rv_comment
+		PRIMARY KEY (
+			comNo
+		);        
+/*시퀀스*/
+create sequence memSeq
+increment by 1
+start with 1
+nocache;
+
+create sequence bisSeq
+increment by 1
+start with 1
+nocache;
+
+create sequence adSeq
+increment by 1
+start with 1
+nocache;
+
+create sequence bkSeq
+increment by 1
+start with 1
+nocache;
+
+create sequence rvSeq
+increment by 1
+start with 1
+nocache;
+
+create sequence qnaSeq
+increment by 1
+start with 1
+nocache;
+
+create sequence comSeq
+increment by 1
+start with 1
+nocache;
+commit;

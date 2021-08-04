@@ -5,7 +5,7 @@
 <head>
 <script src="./js/jquery-3.5.1.min.js"></script>
 <meta charset="UTF-8">
-<title>popUppage</title>
+<title>예약한 캠팡장 검색</title>
 </head>
 
 <script type="text/javascript">
@@ -38,17 +38,16 @@ $(function(){
 			var item = msg.response.body.items.item;
 			var str ='';
 			var i = '';
-			var ar = "";
 			var result = "";
 			
 			//item이 배열형일 경우
 			if(Array.isArray(item)){
 				$.each(item, function(i){
 					
-					str += '<div class="inf"' + i + '>';
-					str += '<div style="width: 30px; float:left;">' + (i+1) + '</div>'; //순서
-					str += '<input type="text" readonly="readonly" style="width:230px; border:none; outline:none;" value="' + item[i].facltNm + '">'; //시설명
-					str += '<input type="text" readonly="readonly" style="width:340px; border:none; outline:none;" value="' + item[i].addr1 + '">'; //시설주소
+					str += '<div class="inf">';
+					str += '<div style="width: 30px; float:left; cursor:pointer;">' + (i+1) + '</div>'; //순서
+					str += '<input type="text" readonly="readonly" id="facltNm" style="cursor:pointer; width:230px; border:none; outline:none;" value="' + item[i].facltNm + '">'; //시설명
+					str += '<input type="text" readonly="readonly" style="cursor:pointer; width:340px; border:none; outline:none;" value="' + item[i].addr1 + '">'; //시설주소
 					str += '<input type="hidden" value="' + item[i].contentId + '">'; //컨텐트아이디
 					str += '<input type="hidden" value="' + item[i].lineIntro + '">'; //한줄소개
 					str += '<input type="hidden" value="' + item[i].tel + '">'; //전화번호
@@ -61,11 +60,11 @@ $(function(){
 				
 			//item이 하나의 값만 가질 경우	
 			}else{
-				i = 0;
-				str += '<div class="inf"' + i + '>';
-				str += '<div style="width: 30px; float:left;">' + (i+1) + '</div>'; //순서
-				str += '<input type="text" readonly="readonly" style="width:230px; border:none; outline:none;" value="' + item.facltNm + '">'; //시설명
-				str += '<input type="text" readonly="readonly" style="width:340px; border:none; outline:none;" value="' + item.addr1 + '">'; //시설주소
+				i = 1;
+				str += '<div class="inf">';
+				str += '<div style="width: 30px; float:left;">' + i + '</div>'; //순서
+				str += '<input type="text" readonly="readonly" id="facltNm" style="cursor:pointer; width:230px; border:none; outline:none;" value="' + item.facltNm + '">'; //시설명
+				str += '<input type="text" readonly="readonly" style="cursor:pointer; width:340px; border:none; outline:none;" value="' + item.addr1 + '">'; //시설주소
 				str += '<input type="hidden" value="' + item.contentId + '">'; //컨텐트아이디
 				str += '<input type="hidden" value="' + item.lineIntro + '">'; //한줄소개
 				str += '<input type="hidden" value="' + item.tel + '">'; //전화번호
@@ -79,7 +78,7 @@ $(function(){
 			
 			$('.item').html(str);
 			
-			$('.inf' + i).hover(function(){
+			$('.inf').hover(function(){
 				$(this).children().eq(0).css('color','gray'); //숫자
 				$(this).children().eq(1).css('color','gray'); //시설명
 				$(this).children().eq(2).css('color','gray'); //시설주소		
@@ -90,17 +89,20 @@ $(function(){
 			});
 			
 			/* 캠핑장명 저장 */
-			$('.inf' + i).click(function(){
-				facltNm = $(this).children().eq(1).val();
-				addr = $(this).children().eq(2).val();
-				contentId = $(this).children().eq(3).val();
-				lineIntro = $(this).children().eq(4).val();
-				tel = $(this).children().eq(5).val();
-				homePage = $(this).children().eq(6).val();
-				imgUrl = $(this).children().eq(7).val();
-				mapX = $(this).children().eq(8).val();
-				mapY = $(this).children().eq(9).val();
+		
+			$('.inf').click(function(){
 				
+					facltNm = $(this).children().eq(1).val();
+					addr = $(this).children().eq(2).val();
+					contentId = $(this).children().eq(3).val();
+					lineIntro = $(this).children().eq(4).val();
+					tel = $(this).children().eq(5).val();
+					homePage = $(this).children().eq(6).val();
+					imgUrl = $(this).children().eq(7).val();
+					mapX = $(this).children().eq(8).val();
+					mapY = $(this).children().eq(9).val();
+		
+		
 				result = confirm(facltNm + "으로 하시겠습니까?");
 				
 				if(result == true){
@@ -127,7 +129,7 @@ $(function(){
 
 
 <body>
-	<h2>팝업창</h2>
+	<h2>캠핑장 검색</h2>
 	  	<label>예약한 캠핑장명을 검색하세요.</label>
 	  	<div>
 	  	<input type="text" class="keyword2" id="searchKrwd_f" name="searchKrwd" placeholder="검색어를 입력하세요.">

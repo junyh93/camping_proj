@@ -123,12 +123,12 @@ $(function(){
 		var name3 = rvImg.split(",")[3];
 		var name4 = rvImg.split(",")[4];
 		
-		alert(name0 + name1);
+		
 		if(name0 != ""){
-			$('.img_container').append("<div><img src='<c:url value='./reviewUpload/"+name0+"'/>'/></div>");
+			$('.img_container').append("<div style='width: 265px; height: 180px; overflow: hidden; position: relative; border-radius: 3px; padding: 3px; border: 1px solid rgb(235, 235, 235);'><img src='<c:url value='./reviewUpload/"+name0+"'/>'/></div>");
 		} 
 		if(name1 != ""){
-				$(".img_container").append("<div><img src='<c:url value='./reviewUpload/"+name1+"'/>'/></div>");
+				$(".img_container").append("<div style='width: 265px; height: 180px; overflow: hidden; position: relative; border-radius: 3px; padding: 3px; border: 1px solid rgb(235, 235, 235);'><img src='<c:url value='./reviewUpload/"+name1+"'/>'/></div>");
 		}
 		if(name2 != ""){
 			$(".img_container").append("<div><img src='<c:url value='./reviewUpload/"+name2+"'/>'/></div>");
@@ -177,7 +177,7 @@ $(function(){
 	
 	<!-- 후기 사진 최대 5장 -->
 	<input type="hidden" id="rvImg" value="${review.rvImg }">
-	<div class="img_container">
+	<div class="img_container" style="width: 310px; height:450px; border:1px solid rgb(235, 235, 235); margin:4px; box-shadow: rgba(0, 0, 0, 0.07) 1px 1px 12px; display: flex; flex-direction: column; align-items:  center; padding-top: 5px; border-radius: 3px;">
 <%-- 		<div class="img_main"><img src="<c:url value='./reviewUpload/${review.rvImg.split(",")[0] }'/>"/></div>
 	
 		<div class="img_sub">
@@ -281,5 +281,5 @@ $(function(){
     					<a href="<c:url value='review.do'/> " class="btn btn-warning" style="border-radius:20px; margin:5px;">글 목록</a><br>
   		</div>
     </section>
-
+<%@include file="../common/comment.jsp" %>
 <%@include file="../common/footer.jsp" %>

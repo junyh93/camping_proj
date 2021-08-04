@@ -9,6 +9,7 @@
 		<typeAlias alias="member" type="com.camping.biz.member.MemberVO"/>
 		<typeAlias alias="admin" type="com.camping.biz.admin.AdminVO"/>
 		<typeAlias alias="review" type="com.camping.biz.review.ReviewVO"/>
+		<typeAlias alias="comment" type="com.camping.biz.comment.CommentVO"/>
 	</typeAliases>
 
 	<!-- Sql Mapper 설정 -->
@@ -16,6 +17,7 @@
 		<mapper resource="mappings/member-mapping.xml"/>
 		<mapper resource="mappings/admin-mapping.xml"/>
 		<mapper resource="mappings/review-mapping.xml"/>
+		<mapper resource="mappings/comment-mapping.xml"/>
 	</mappers>
 
 </configuration>

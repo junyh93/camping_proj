@@ -1,0 +1,11 @@
+@charset "UTF-8";
+*{
+	font-family:'G마켓 산스';
+	font-weight: normal; 
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background: #fff;
+}
