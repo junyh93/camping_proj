@@ -9,7 +9,7 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 <script type="text/javascript">
-$(function(){
+
 /*
  * 댓글 등록하기(Ajax)
  */
@@ -37,10 +37,9 @@ function fn_comment(code){
 /**
  * 초기 페이지 로딩시 댓글 불러오기
  */
-
-    
+$(function(){
     getCommentList();
-    
+});   
 
  
 
@@ -68,29 +67,11 @@ function getCommentList(){
                 for(i=0; i<data.length; i++){
                     html += "<div>";
                     html += "<div><table class='table'><h6><strong>"+data[i].memId+"</strong></h6>";
-                    html += data[i].comContent +"<a href='#' class='combtn' name='delete'>삭제</a><p>"+data[i].comDate+"</p><tr><td></td></tr>";
+                    html += data[i].comContent +"<a href='deleteComment.do?comNo="+data[i].comNo+"' class='combtn' name='delete'>삭제</a><p>"+data[i].comDate+"</p><tr><td></td></tr>";
                     html += "</table></div>";
                     html += "</div>";
                 }
                 
-                $('.combtn').click(function(){
-                	var comNo = data[i].comNo;   	
-                	
-                	
-                	$.ajax({
-                		url:"/deleteComment.do",
-                		data:comNo,
-                		type:'GET',
-                		dataType:'text',
-                		success:function(data){
-                			getCommentList();
-                		}
-                		,error:function(request,status,error){
-                            
-                	       }
-                	});
-
-                });
             } else {
                 
                 html += "<div>";
@@ -117,7 +98,7 @@ function getCommentList(){
 
 
 
-});
+
 	
  
 </script>
@@ -128,6 +109,7 @@ function getCommentList(){
     <form id="commentForm" name="commentForm" method="post">
     			
 		 		 <input type="hidden" id="sessionId" name="memId" value="${memId}">
+		 		 <input type="hidden" id="sessionNo" name="memNo" value="${memNo}">
     			 <input type="hidden" id="rvNo" name="rvNo" value="${review.rvNo }">
     <br><br>
         <div>
