@@ -27,9 +27,6 @@ $(function(){
 });
 
 </script>
-<section>
-	<div class="main_img"></div>
-	<section>
 		<div class="main_search">
 			<span class="main_search_title">전국  캠핑장을 한 곳에서 찾으세요!</span>
 		</div>
@@ -76,7 +73,7 @@ $(function(){
 							<!--//검색박스-->
 						</form>
 					</div>
-	</section>
+
 <!-- 	
 	<div id="map" style="width:500px;height:400px;"></div>
 
@@ -105,7 +102,7 @@ var staticMapContainer  = document.getElementById('map'), // 이미지 지도를
 var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
 </script> 
 -->
-</section>
+</div>
 
 <!-- <section>
 <div class="seaction2">
