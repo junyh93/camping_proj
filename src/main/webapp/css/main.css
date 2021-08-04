@@ -6,7 +6,7 @@
 	font-weight: lighter;
 }
 
-html,body{
+.main_img{
 	width: 100%;
 	height: 100%;
 	background-image: linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(255,255,255,0.15)), url('../img/캠핑1.png');
@@ -17,12 +17,18 @@ html,body{
 	
 	/* opacity: 0.5; */
 }
-
-/*메뉴바 우측정렬  */
-header{
-	display: flex;
-	justify-content: space-between;
+.main_header{
+	width: 100%;
+	display: inline-block;	
 }
+.main_logo{
+	float:left;
+}
+.main_menu{
+	float: right;
+	height: 180px;
+}
+
 a{
 text-decoration: none;
 color: black;
