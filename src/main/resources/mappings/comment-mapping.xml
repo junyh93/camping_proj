@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CommentDAO">
+
+	<insert id="insertComment">
+	 <!-- 시퀀스 값을 가져와서 memNo컬럼에 넣어준다 -->
+	<selectKey keyProperty="comNo" resultType="int" order="BEFORE">
+		select comSeq.nextval from dual
+	</selectKey>
+	
+			insert into rv_comment(comNo, rvNo, memId, comContent, comDate) 
+			values(#{comNo},#{rvNo},#{memId},#{comContent}, #{comDate})
+		
+	</insert>
+	
+	<delete id="deleteComment">
+		<![CDATA[
+			delete from rv_comment where comNo=#{comNo}
+		]]>
+	</delete>
+	
+		<!-- 댓글 목록 -->
+	<select id="commentList" resultType="comment">
+	<![CDATA[
+		select * from rv_comment where rvNo=#{rvNo} order by comNo desc
+	]]>
+	</select>
+</mapper>

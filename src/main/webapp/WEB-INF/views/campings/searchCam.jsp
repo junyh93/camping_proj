@@ -3,7 +3,7 @@
 <%@include file="../common/header.jsp" %>
 
 <title>캠핑장 검색</title>
-<link type="text/css" href="<c:url value='/css/#.css'/>"  rel="stylesheet" >
+<link type="text/css" href="<c:url value='/css/searchCam.css'/>"  rel="stylesheet" >
 
 <script type="text/javascript">
 var url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList'; 
@@ -36,10 +36,12 @@ $.ajax({
 });
 </script>
 
+<div>
+<input type="hidden" id="searchKrwd" value="${searchKrwd }">
+<input type="hidden" id="c_do" value="${c_do}">
+<input type="hidden" id="c_signgu" value="${c_signgu }">
+</div>
 
-<input type="hidden" id="searchKrwd" value="${searchKrwd.searchKrwd }">
-<input type="hidden" id="c_do" value="${c_do.c_do }">
-<input type="hidden" id="c_signgu" value="${c_signgu.c_signgu }">
 
 
 <%@include file="../common/footer.jsp" %>

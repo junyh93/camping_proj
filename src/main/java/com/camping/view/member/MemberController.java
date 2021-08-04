@@ -251,14 +251,17 @@ public class MemberController {
 		return "";
 	}
 	
-	@ResponseBody
+
 	@RequestMapping(value="/search.do", method =RequestMethod.GET)
-	public String searchForm(Model model, @RequestParam("searchKrwd") String searchKrwd, @RequestParam("c_do") String c_do, @RequestParam("c_signgu") String c_signgu) {
+	public String searchForm(Model model, @RequestParam("searchKrwd") String searchKrwd, @RequestParam("c_do") String c_do, @RequestParam("c_signgu") String c_signgu, HttpServletRequest request) {
+		System.out.println("검색 처리 중");
 		
 		model.addAttribute("searchKrwd", searchKrwd);
 		model.addAttribute("c_do",c_do);
 		model.addAttribute("c_signgu",c_signgu);
 		
-		return "campings/camping";
+		System.out.println(model);
+		
+		return "campings/searchCam";
 	}
 }
