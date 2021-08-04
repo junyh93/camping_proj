@@ -6,7 +6,7 @@
 
 <link type="text/css" href="<c:url value='/css/join.css'/>" rel="stylesheet" >
 
-<script src="<c:url value='/js/join.js'/>"></script>
+<%-- <script src="<c:url value='/js/join.js'/>"></script> --%>
 
 <script type="text/javascript">
 $(function(){
@@ -23,7 +23,7 @@ $(function(){
           alert(phoneNumber + ' 인증번호를 전송합니다');
        
           $.ajax({
-             url : "/camping/sendSMS.do",
+             url : "<c:url value='/sendSMS.do'/>",
              type : "get",
              data : "phoneNumber=" + phoneNumber,
              dataType : "json",
@@ -38,8 +38,9 @@ $(function(){
                    }
                 });
              },
-             error : function(xhr, status, error) {
-                alert(status + ", " + error);
+             error : function(request,status,error) {
+            	 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+             
              }
           }); //ajax
        }   
@@ -112,6 +113,7 @@ $(function(){
 	});
 
 </script>
+
 <script type="text/javascript">
 $(function(){
 	 $('#idChk').click(function(){

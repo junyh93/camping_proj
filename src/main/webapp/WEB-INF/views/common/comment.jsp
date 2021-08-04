@@ -42,6 +42,31 @@ $(function(){
 });   
 
  
+function delcom(comNo){
+
+	var paramData = {"comNo": comNo};
+	$.ajax({
+
+		url: "<c:url value='/deleteComment.do'/>"
+
+		, data : paramData
+
+		, type : 'GET'
+
+		, dataType : 'text'
+
+		, success: function(result){
+			if(result == "Y"){
+			getCommentList();
+			}
+		}
+
+		,error:function(request,status,error){
+            //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	       }
+	});
+
+}
 
 /**
  * 댓글 불러오기(Ajax)
@@ -67,7 +92,7 @@ function getCommentList(){
                 for(i=0; i<data.length; i++){
                     html += "<div>";
                     html += "<div><table class='table'><h6><strong>"+data[i].memId+"</strong></h6>";
-                    html += data[i].comContent +"<a href='deleteComment.do?comNo="+data[i].comNo+"' class='combtn' name='delete'>삭제</a><p>"+data[i].comDate+"</p><tr><td></td></tr>";
+                    html += data[i].comContent +"<a onclick='delcom("+data[i].comNo+")' class='combtn' name='delete'>삭제</a><p>"+data[i].comDate+"</p><tr><td></td></tr>";
                     html += "</table></div>";
                     html += "</div>";
                 }
