@@ -16,12 +16,17 @@ $(function(){
 	var url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/searchList'; 
 	var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'Po8b3s%2BelMewEpuJuSSNclaKWDReZThq%2FrOSAU0x%2BqHff1gACrKi1G3eez3LwxPQLMoN9ntPatUmspBAZTJd5w%3D%3D'; 
 	var keyword = $('#searchKrwd_f').val();
+		
+	//연습
+	var local1 = $('#local1').val();
+	var local2 = $('#local2').val();
 	
 	queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); 
 	queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10000'); 
 	queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); 
 	queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); 
 	queryParams += '&' + encodeURIComponent('keyword') + '=' + encodeURIComponent(keyword);
+		
 	queryParams += '&_type=json';
 	
 	var mapX = "";
@@ -34,11 +39,58 @@ $(function(){
 	}).done(function(msg) {
 
 			console.log(msg.response.body.items.item)
-			
 			var item = msg.response.body.items.item;
 			var str ='';
 			var i = '';
 			var result = "";
+			
+			/*
+			searchList 이용
+			c1 키워드o 주소1o 주소2o 구현o
+			c2 키워드o 주소1o 주소2x 구현o
+			c3 키워드o 주소1x 주소2o 구현x
+			c4 키워드o 주소1x 주소2x 구현o
+			
+			c5 키워드x 주소1o 주소2o o
+			c6 키워드x 주소1o 주소2x o
+			c7 키워드x 주소1x 주소2o x
+			c8 키워드x 주소1x 주소2x x
+			
+			*/
+						
+			var temp = [];
+			
+			$.each(item, function(j){
+				var splitAddr = item[j].addr1.split(" ");
+				var splitAddr1 = splitAddr[0];
+				var splitAddr2 = splitAddr[1];
+				
+				//c1
+				if(local1 != "" && local2 != ""){
+					if(splitAddr1 == local1 && splitAddr2 == local2){
+						temp.push(item[j]);						
+					}
+				
+				//c2
+				}else if(local1 != "" && local2 == ""){
+					if(splitAddr1 == local1){
+						temp.push(item[j]);
+					}
+					
+				//c3
+				}else if(local1 == "" && local2 != ""){
+					alert("ㅋㅋㄹㅃㅃ");					
+					
+				//c4	
+				}else if(local1 == "" && local2 == ""){
+					temp.push(item[j]);
+				}
+			});
+			
+			item = temp;
+			
+			
+			
 			
 			//item이 배열형일 경우
 			if(Array.isArray(item)){
@@ -55,7 +107,8 @@ $(function(){
 					str += '<input type="hidden" value="' + item[i].firstImageUrl + '">'; //첫이미지경로
 					str += '<input type="hidden" value="' + item[i].mapX + '">'; //위치정보
 					str += '<input type="hidden" value="' + item[i].mapY + '">'; //위치정보
-					str += '</div>'
+					str += '</div>';
+						
 				});
 				
 			//item이 하나의 값만 가질 경우	
@@ -133,6 +186,10 @@ $(function(){
 	  	<label>예약한 캠핑장명을 검색하세요.</label>
 	  	<div>
 	  	<input type="text" class="keyword2" id="searchKrwd_f" name="searchKrwd" placeholder="검색어를 입력하세요.">
+	  	
+	  	<!-- 연습 -->
+	  	<input type="text" id="local1" placeholder="지역입력1">
+	  	<input type="text" id="local2" placeholder="지역입력2">
             <button type="button" id="search">검색하기</button>
 		</div>
 		<div class=item></div>
