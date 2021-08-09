@@ -98,7 +98,25 @@ $(function(){
 							<!--//검색박스-->
 						</form>
 					</div>
-
+					<div class="main_middle" style="height:100%; margin-top: 111px;">
+						
+						<div style="width: 25%; height:100%; float:left; background-color: red;">
+						</div>
+						<div style="width: 25%; height:100%; float:left; background-color: yellow;">
+						</div>
+						<div style="width: 25%; height:100%; float:left; background-color: green;">
+						</div>
+						<div style="width: 25%; height:100%; float:left; background-color: orange;">
+						</div>				
+					</div>
+					<div class="main_under" style="height:100%;">
+						
+						<div style="width: 50%; height:100%; float:left; background-color: blue">
+						</div>
+						<div style="width: 50%; height:100%; float:left; background-color: purple">
+						</div>
+					</div>
+					
 <!-- 	
 	<div id="map" style="width:500px;height:400px;"></div>
 
