@@ -4,66 +4,7 @@
 
 <title>후기 상세보기</title>
 <link type="text/css" href="<c:url value='/css/getReview.css'/>"  rel="stylesheet" >
-<!-- 
-<script type="text/javascript">
 
-
-	var url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/searchList'; 
-	var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'Po8b3s%2BelMewEpuJuSSNclaKWDReZThq%2FrOSAU0x%2BqHff1gACrKi1G3eez3LwxPQLMoN9ntPatUmspBAZTJd5w%3D%3D'; 
-	queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); 
-	queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); 
-	queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); 
-	queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); 
-	queryParams += '&' + encodeURIComponent('keyword') + '=' + encodeURIComponent('남양주');
- 	/*
- 	queryParams += '&' + encodeURIComponent('mapX') + '=' + encodeURIComponent('128.6142847'); //경도
-	queryParams += '&' + encodeURIComponent('mapY') + '=' + encodeURIComponent('36.0345423');  // 위도
-	queryParams += '&' + encodeURIComponent('radius') + '=' + encodeURIComponent('2000'); // 거리 반경*/
-	queryParams += '&_type=json';
-	
-	var mapX = "";
-	var mapY = "";
-	
-	var facltNm = "";
-	
-	$.ajax({
-			method: "GET",
-			url: url + queryParams,
-	success : function(msg) {
-			
-			console.log(msg);
-			
-			/*console.log(msg.response.body.items.item[0].addr1);*/
- 		 	addr = msg.response.body.items.item.addr1 
- 		 	mapX = msg.response.body.items.item.mapX
- 		 	mapY = msg.response.body.items.item.mapY
- 		 	contentId = msg.response.body.items.item.contentId
-
- 		 	img = msg.response.body.items.item.firstImageUrl
- 		 	facltNm = msg.response.body.items.item.facltNm
- 		 	intro = msg.response.body.items.item.intro
- 		 	lineintro = msg.response.body.items.item.lineIntro
- 		 	tel = msg.response.body.items.item.tel
- 		 	homepage = msg.response.body.items.item.homepage
- 		 	zipcode = msg.response.body.items.item.zipcode
- 		 	addr2 = msg.response.body.items.item.addr2
- 			
- 			$(".img").append("<img src='" + img +"' width='73' height='70' />"); 
-			$(".facltNm").append(facltNm);
-			$(".addr").append(addr);
-			$(".lineintro").append(lineintro);
-			$(".tel").append(tel);
-			$(".homepage").append("<a href='" + homepage + "'>"+ homepage +"</a>");
-	 		$(".contentid").append("<input type='hidden' id='contentId'" + contentId + ">");
-	
-	},
-	error : function(xhr, status, error) {
-		        alert(status + ", " + error);
-		}  
-    });
-
-</script>
- -->
 <script type="text/javascript">
 $(function(){
 	if($('#stcnt').val() == 1){
@@ -177,7 +118,7 @@ $(function(){
 	
 	<!-- 후기 사진 최대 5장 -->
 	<input type="hidden" id="rvImg" value="${review.rvImg }">
-	<div class="img_container" style="width: 310px; height:450px; border:1px solid rgb(235, 235, 235); margin:4px; box-shadow: rgba(0, 0, 0, 0.07) 1px 1px 12px; display: flex; flex-direction: column; align-items:  center; padding-top: 5px; border-radius: 3px;">
+	<div class="img_container" style="width: 310px; height:400px; border:1px solid rgb(235, 235, 235); margin:4px; box-shadow: rgba(0, 0, 0, 0.07) 1px 1px 12px; display: flex; flex-direction: column; align-items:  center; padding-top: 5px; border-radius: 3px;">
 <%-- 		<div class="img_main"><img src="<c:url value='./reviewUpload/${review.rvImg.split(",")[0] }'/>"/></div>
 	
 		<div class="img_sub">

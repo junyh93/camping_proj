@@ -19,13 +19,13 @@
 }
 .main_header{
 	width: 100%;
-	display: inline-block;	
+ 	display: inline-block; 	
 }
 .main_logo{
-	float:left;
+ float:left;
 }
 .main_menu{
-	float: right;
+	 float: right; 
 	height: 180px;
 }
 

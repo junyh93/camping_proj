@@ -74,7 +74,7 @@ public class CommentController {
 	        return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
 	}
 	
-	//ajax에서 실행된 do요청의 값을 반환
+	//responseBody - ajax에서 실행된 do요청의 값을 반환
 	@ResponseBody
 	@RequestMapping(value="/deleteComment.do" , method = RequestMethod.GET)
 	public String  deleteComment(CommentVO vo) {
