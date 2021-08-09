@@ -87,11 +87,53 @@ $.ajax({
 		}
 	}
 	
+
+	
+	var seoul_sigungu = "";
+	var busan_sigungu = "";
+	var kangwon_sigungu = "";
+	var gyeonggi_sigungu = "";
+	
+
 	if(Array.isArray(item)){
+		
+		var seoul = "서울시";
+		var busan = "부산시";
+		var kangwon = "강원도";
+		var gyeonggi = "경기도";
+		
+		var id = [];
+
+		
 		$.each(item, function(i){
+
+			if(item[i].doNm == seoul){
+				id.push( item[i].contentId);
+				alert(id.length);
+				
+				var selected = id[Math.floor(Math.random() * id.length)];
+				alert(selected);
+			}
+			
 			item[i].firstImageUrl = item[i].firstImageUrl == null ? "/camping/img/캠핑야경.jpg" : item[i].firstImageUrl; 
 			item[i].lineIntro = item[i].lineIntro == null ? "-" : item[i].lineIntro;
+			var sttr = "";
+
 			
+			var sbrsCl = item[i].sbrsCl;
+			
+			if(sbrsCl == null){
+				sbrsCl = " ";
+				sttr += "<li><span>"+sbrsCl+"</span></li>";
+			}
+			
+			if(sbrsCl.includes('전기') == true){
+				sttr += "<li><img src='<c:url value='/img/ico_volt.png'/>'><br><span>전기</span></li>";
+			}
+			if(sbrsCl.includes('무선인터넷') == true){
+				sttr += "<li><img src='<c:url value='/img/ico_wifi.png'/>'><br><span>와이파이</span></li>";
+			}
+
 			
 			var len = "";
 			
@@ -102,11 +144,11 @@ $.ajax({
 			}
 			
 			
-			if(len < 20){
+			if(len < 50){
 				item[i].intro;
 			}else {
-				var intro1 = item[i].intro.substring(0,21); //20글자
-				var intro2 = item[i].intro.substring(21,len);
+				var intro1 = item[i].intro.substring(0,51); //50글자
+				var intro2 = item[i].intro.substring(51,len);
 				
 				intro2 = "...";
 				
@@ -128,9 +170,18 @@ $.ajax({
 			st += '	<ul class="camp_info01">';
 			st += '<li class="addr">'+item[i].addr1+'</li>';
 			st += '<li class="call_num">'+item[i].tel+'</li></ul>';
-			st += '</div>';
-			st += '</div>';
-			st += '</li></ul>';
+			st += '<div class="camp_item_box">';
+			st += '<ul>';
+			st +=  sttr;
+			st += '</ul></div>';
+			/* 
+			st += '<li><i class="ico_wifi"><span>'+ico_wifi+'</span></i></li></ul></div>'; */
+/* 			st += '<li><i class="ico_hotwater"><span>'+ico_hotwater+'</span></i></li>';
+			st += '<li><i class="ico_playzone"><span>'+ico_playzone+'</span></i></li>';
+			st += '<li><i class="ico_walk"><span>'+ico_walk+'</span></i></li>';
+			st += '<li><i class="ico_ico_sports"><span>'+ico_ico_sports+'</span></i></li>';
+			st += '<li><i class="ico_mart"><span>'+ico_mart+'</span></i></li></ul></div>'; */
+			st += '</div></div></li></ul>';
 		});
 		
 	//item이 하나의 값만 가질 경우	
@@ -150,6 +201,7 @@ $.ajax({
 		st += '</div>'
 
 	}
+	
 	
 	
 	$('.camp_search_list').html(st);
