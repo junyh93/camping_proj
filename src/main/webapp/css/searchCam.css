@@ -542,7 +542,7 @@ a:link, a:visited {
     margin: 0;
 }
 .camp_info01 li.addr {
-    background: url(img/ico_map01.png) no-repeat left 5px;
+    background: url(../img/ico_map01.png) no-repeat left 5px;
     padding-left: 25px;
     margin-right: 20px;
 }
@@ -552,7 +552,7 @@ a:link, a:visited {
     color: #000;
 }
 .camp_info01 li.call_num {
-    background: url(img/ico_call01.png) no-repeat left 5px;
+    background: url(../img/ico_call01.png) no-repeat left 5px;
     padding-left: 25px;
 }
 .camp_info01 li {
@@ -583,10 +583,16 @@ a:link, a:visited {
     text-align: center;
     display: block;
 }
+/* 
 i.ico_volt {
-    background: url(/img/2018/sub/ico_volt.png) no-repeat center 5px;
+    background: url(../img/ico_volt.png) no-repeat center 5px;
     width: 100%;
 }
+i.ico_wifi {
+    background: url(../img/ico_wifi.png) no-repeat center 5px;
+    width: 100%;
+}
+ */
 i {
     font-style: italic;
 }
