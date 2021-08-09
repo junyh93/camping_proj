@@ -1,0 +1,142 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	font-family:'G마켓 산스';
+	font-weight: normal; 
+}
+
+body{
+	background:#FFF;
+	margin: 0;
+    height: 100%;
+
+}
+
+.content{
+    position: relative;
+    width: 80%;
+    height: auto;
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 100px;
+	margin-left: 150px;
+}
+
+.imageUrl{
+    width: 60%;
+    height: 484px;
+    float: left;
+    background: #eee;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+}
+.imageUrl > img{
+	object-fit: cover;
+    width: 100%;
+    height: 100%;
+        border: none;
+}
+
+.cont_tb{
+	margin: 0px;
+    padding: 0px;
+    width: 37%;
+    float: right;
+    height: auto;
+    overflow: hidden;
+    display: block;	
+}
+
+.cont_tb > .table{
+	width: 100%;
+    font-size: 14px;
+    border-collapse: collapse;
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+
+.cont_tb tbody tr:nth-child(1) th {
+    border-top: 2px solid #e55450;
+}
+
+.cont_tb tbody tr:nth-child(1) td {
+    border-top: 2px solid #000;
+}
+
+.cont_tb table tr th {
+    padding: 11px 10px;
+    border-bottom: 1px solid #c8c8c8;
+    text-align: left;
+    color: #000;
+    line-height: 25px;
+}
+  
+.cont_tb table tr td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #c8c8c8;
+    line-height: 25px;
+}
+
+.btn_w {
+    width: 100%;
+    position: relative;
+    height: auto;
+    padding: 10px 0 0 0;
+    clear: both;
+}
+
+.btn_w button {
+    margin: 0;
+    display: inline-block;
+    cursor: pointer;
+    text-transform: none;
+    vertical-align: middle;
+}
+
+.best {
+    width: 32%;
+    padding-left: 20px;
+    background: #375b9c url(/img/2018/sub/ico_best.png) no-repeat left 30px center;
+}
+
+.btn_bB1 {
+    background: #375b9c;
+    height: 38px;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+}
+
+.zzim {
+    width: 32%;
+    margin: 0 1%;
+    background: #e32242 url(/img/2018/sub/ico_zzim.png) no-repeat left 36px center;
+    padding-left: 20px;
+}
+
+.btn_rB1 {
+    background: #e32242;
+    height: 38px;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+}
+
+.btn_modify {
+    width: 33%;
+}
+
+.btn_gB1 {
+    background: #fff;
+    height: 38px;
+    text-align: center;
+    color: #777;
+    border: 1px solid #bebebe;
+    font-size: 13px;
+}

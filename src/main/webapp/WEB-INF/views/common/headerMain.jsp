@@ -138,38 +138,39 @@ response.setDateHeader("Expires", 0L);
 <body>
 	 <input type="hidden" id="sessionId" value="${memId}">
 	 <input type="hidden" id="sessionNo" value="${memNo}">
-<header>
-<div class="main_logo">
-	<a href="<c:url value='main.do'/>" ><img src="<c:url value='/img/logoForest1.png'/>"  height="150" style="padding:20px 0 0 70px;"></a>
-</div>
-<div class="main_menu">
-	<ul >
-		<li class="limenu"><a href="#" class="amenu"><img src="<c:url value='/img/search1.png'/> "></a></li>
-		<li class="limenu slide1"><a href="<c:url value='review.do'/>" class="amenu"><img src="<c:url value='/img/comm1.png'/> "></a>
-			<ul class="subslide1">
-				<li class="listyle"><a href="<c:url value='review.do'/>"  class="astyle">-캠핑 후기</a></li>
-				<li class="listyle"><a href="#" class="astyle">-캠핑 음식</a></li>
-				<li class="listyle"><a href="#" class="astyle">-캠핑 팁</a></li>
-	    	</ul>
-		</li>
-		<li class="limenu slide2"><a href="#" class="amenu"><img src="<c:url value='/img/notice1.png'/> "></a>
-			<ul class="subslide2">
-				<li class="listyle"><a href="#" class="astyle">-문의하기</a></li>
-	    	</ul>
-		</li>
-<%--  		<li class="limenu" id="join"><a href="<c:url value='join.do'/>" class="amenu">회원가입</a></li>  --%>
-		<li class="limenu slide3" id="login"><a href="<c:url value='login.do'/>" class="amenu"><img src="<c:url value='/img/login1.png'/> "></a>
-	<%-- 		<ul class="subslide3">
-				<li class="listyle"><a href="<c:url value='join.do'/>" class="astyle">회원가입</a></li>
-	    	</ul> --%>
-		</li>
-		<li class="limenu slide4" id="mypage"><a href="<c:url value='mypage.do'/>" class="amenu"><img src="<c:url value='/img/mypage1.png'/> "></a>
-		<%-- 	<ul class="subslide4">
-				<li class="listyle"><a href="<c:url value='logout.do'/>" class="astyle">로그아웃</a></li>
-	    	</ul> --%>
-		</li>
- 		<li class="limenu" id="logout"><a href="<c:url value='logout.do'/>" class="amenu"><img src="<c:url value='/img/logout1.png'/> "></a></li>
-	</ul>
-</div>
-</header>
+	<div class="main_img">
+	<div class="main_header">
+	<div class="main_logo">
+		<a href="<c:url value='main.do'/>" ><img src="<c:url value='/img/logoForest1.png'/>"  height="150" style="padding:20px 0 0 70px;"></a>
+	</div>
+	<div class="main_menu">
+		<ul >
+			<li class="limenu"><a href="#" class="amenu"><img src="<c:url value='/img/search1.png'/> "></a></li>
+			<li class="limenu slide1"><a href="<c:url value='review.do'/>" class="amenu"><img src="<c:url value='/img/comm1.png'/> "></a>
+				<ul class="subslide1">
+					<li class="listyle"><a href="<c:url value='review.do'/>"  class="astyle">-캠핑 후기</a></li>
+					<li class="listyle"><a href="#" class="astyle">-캠핑 음식</a></li>
+					<li class="listyle"><a href="#" class="astyle">-캠핑 팁</a></li>
+		    	</ul>
+			</li>
+			<li class="limenu slide2"><a href="#" class="amenu"><img src="<c:url value='/img/notice1.png'/> "></a>
+				<ul class="subslide2">
+					<li class="listyle"><a href="#" class="astyle">-문의하기</a></li>
+		    	</ul>
+			</li>
+	<%--  		<li class="limenu" id="join"><a href="<c:url value='join.do'/>" class="amenu">회원가입</a></li>  --%>
+			<li class="limenu slide3" id="login"><a href="<c:url value='login.do'/>" class="amenu"><img src="<c:url value='/img/login1.png'/> "></a>
+		<%-- 		<ul class="subslide3">
+					<li class="listyle"><a href="<c:url value='join.do'/>" class="astyle">회원가입</a></li>
+		    	</ul> --%>
+			</li>
+			<li class="limenu slide4" id="mypage"><a href="<c:url value='mypage.do'/>" class="amenu"><img src="<c:url value='/img/mypage1.png'/> "></a>
+			<%-- 	<ul class="subslide4">
+					<li class="listyle"><a href="<c:url value='logout.do'/>" class="astyle">로그아웃</a></li>
+		    	</ul> --%>
+			</li>
+	 		<li class="limenu" id="logout"><a href="<c:url value='logout.do'/>" class="amenu"><img src="<c:url value='/img/logout1.png'/> "></a></li>
+		</ul>
+	</div>
+	</div>
 

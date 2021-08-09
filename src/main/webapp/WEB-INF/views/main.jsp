@@ -5,31 +5,53 @@
 <script src="<c:url value='/js/main.js'/>"></script>
 
 <script type="text/javascript">
+/*
+searchlist이용 
+1.키워드 o, 주소1, 주소2 
+2.키워드 O, 주소1
+3.키워드 O, 주소2
+4.키워드 O
+
+5.키워드 X, 주소1, 주소2
+6.키워드 X, 주소1
+7.키워드 X, 주소2
+8.키워드 X
+
+
+*/
 $(function(){
 	 $("form[name=camSearchForm]").submit(function(){
+		 
 		var searchKrwd_f = $("#searchKrwd_f").val();
 	    var select_01 = $(".select_01").val();
 	    var select_02 = $(".select_02").val();
 		
-	    if(select_01 == ""){
-	    	alert("지역별 검색 시도를 선택해 주세요.");
-	    	$(".select_01").focus();
-	    	event.preventDefault();
-	    	return false;
+	    //키워드 O
+	    if(searchKrwd_f != ""){
+	    	if(select_01 == "" && select_02 != ""){
+	    		alert("시/도를 선택해주세요");
+	    		event.preventDefault();
+		    	return false;
+	    	}	
 	    }
-	    if(select_02 == ""){
-	    	alert("지역별 검색 시군구를 선택해 주세요.");
-	    	$(".select_02").focus();
-	    	event.preventDefault();
-	    	return false;
-	    }		
+	    
+	  	//키워드 X
+	    else{ 
+	    	if(select_01 == "" && select_02 != ""){
+	    		alert("시/도를 선택해주세요");
+	    		event.preventDefault();
+		    	return false;
+	    	}else if(select_01 == "" && select_02 == ""){
+	    		alert("키워드나 지역을 선택해주세요");
+	    		event.preventDefault();
+		    	return false;
+	    	}
+	    }
 	});
 });
 
 </script>
-<section>
-	<div class="main_img"></div>
-	<section>
+
 		<div class="main_search">
 			<span class="main_search_title">전국  캠핑장을 한 곳에서 찾으세요!</span>
 		</div>
@@ -76,7 +98,7 @@ $(function(){
 							<!--//검색박스-->
 						</form>
 					</div>
-	</section>
+
 <!-- 	
 	<div id="map" style="width:500px;height:400px;"></div>
 
@@ -105,7 +127,7 @@ var staticMapContainer  = document.getElementById('map'), // 이미지 지도를
 var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
 </script> 
 -->
-</section>
+</div>
 
 <!-- <section>
 <div class="seaction2">

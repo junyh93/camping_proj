@@ -153,7 +153,7 @@ response.setDateHeader("Expires", 0L);
 	 <input type="hidden" id="sessionNo" value="${memNo}">
 <header>
 <div class="main_logo">
-	<a href="<c:url value='main.do'/>" ><img src="<c:url value='/img/logoForest1.png'/>"  height="150" style="padding:20px 0 0 70px;"></a>
+	<a href="<c:url value='main.do'/>" ><img src="<c:url value='/img/logoForest1.png'/>"  height="170" style="padding:20px 0 0 70px;"></a>
 </div>
 <div class="main_menu">
 	<ul >

@@ -16,6 +16,8 @@ $(function(){
 	var url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/searchList'; 
 	var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'Po8b3s%2BelMewEpuJuSSNclaKWDReZThq%2FrOSAU0x%2BqHff1gACrKi1G3eez3LwxPQLMoN9ntPatUmspBAZTJd5w%3D%3D'; 
 	var keyword = $('#searchKrwd_f').val();
+	var local1 = $('#local1').val();
+	var local2 = $('#local2').val();
 	
 	queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); 
 	queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10000'); 
@@ -39,6 +41,11 @@ $(function(){
 			var str ='';
 			var i = '';
 			var result = "";
+			
+			
+
+			
+			
 			
 			//item이 배열형일 경우
 			if(Array.isArray(item)){
@@ -132,7 +139,10 @@ $(function(){
 	<h2>캠핑장 검색</h2>
 	  	<label>예약한 캠핑장명을 검색하세요.</label>
 	  	<div>
+	  	
 	  	<input type="text" class="keyword2" id="searchKrwd_f" name="searchKrwd" placeholder="검색어를 입력하세요.">
+			<input type="text" id="local1">
+			<input type="text" id="local2">
             <button type="button" id="search">검색하기</button>
 		</div>
 		<div class=item></div>

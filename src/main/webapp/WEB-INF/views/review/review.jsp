@@ -15,7 +15,7 @@
 	$(function(){
 		$('.add').click(function(){
 			if($('#sessionId').val() == ""){
-				alert('로그인 이후 이용가능합니다.');
+				alert('로그인 이후 이용 가능합니다.');
 				location.href = 'login.do';
 			}else{
 				location.href = 'addreview.do';
