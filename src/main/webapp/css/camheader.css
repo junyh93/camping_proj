@@ -1,0 +1,371 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	font-family:'G마켓 산스';
+	font-weight: normal; 
+}
+#sub_title_wrap2 {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    clear: both;
+}
+h2 {
+
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.skip {
+    overflow: hidden;
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+    width: auto;
+    height: 1px;
+    text-indent: -999px;
+    z-index: -999;
+}
+.s_title2 {
+    width: 100%;
+    z-index: 3;
+    text-align: left;
+    color: #fff;
+    top: 75px;
+    text-shadow: 2px 2px 3px rgb(0 0 0);
+    background: url(../img/line50p.png) repeat-x 0 bottom;
+    padding-bottom: 20px;
+    padding-top: 75px;
+}
+.s_title2 > .camp_name {
+    font-size: 35px;
+    line-height: 40px;
+    color: #fff !important;
+}
+.s_title2 p {
+    display: block;
+}
+.s_title2 > .camp_s_tt {
+    font-size: 20px;
+    clear: both;
+    margin: 0;
+    letter-spacing: -2px;
+    color: #fff;
+    padding: 5px 0 0 0;
+    font-family:'G마켓 산스';
+	font-weight: lighter; 
+}
+/* 태그 */
+.camp_tag {
+    width: 100%;
+    position: relative;
+    height: auto;
+    clear: both;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    min-height: 32px;
+}
+.camp_tag p.tag_tt {
+    display: block;
+    float: left;
+    padding: 0 15px;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    margin-right: 5px;
+}
+.camp_tag ul li {
+    float: left;
+    color: #fff;
+    padding: 0 5px;
+    font-size: 15px;
+}
+.sub_bg_w {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+/* 배너 사진 */
+.sub_bg_w .camp_bg_01 {
+	min-height: 240px;
+   /*  background: url(../img/island.jpg) no-repeat center center; */
+    /*  no-repeat center top; */
+    color: #000;
+    padding-bottom: 50px;
+  	background: center;
+
+}
+/* .camp_bg_01 > img{
+	width:1700px;
+	height:200px;
+	opacity:0.9;
+	background: center;
+
+	background-size: 100%;
+} */
+.gray_bar {
+    width: 100%;
+    height: auto;
+    padding: 9px 0;
+    background: #eff0f4;
+    position: relative;
+}
+
+.content{
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 100px;
+
+}
+
+.imageUrl{
+    width: 60%;
+    height: 484px;
+    float: left;
+    background: #eee;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+    background-color: white;
+}
+.imageUrl > img{
+	object-fit: cover;
+    width: 100%;
+    height: 100%;
+        border: none;
+}
+.camp_cont_w {
+    width: 100%;
+    position: relative;
+    height: auto;
+    clear: both;
+}
+.camp_cont_w .line_100 {
+    position: absolute;
+    top: 52px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #8d8d8d;
+}
+
+.camp_cont_w ul.camp_tab05 {
+    width: 100%;
+    height: 53px;
+    margin-bottom: 36px;
+    display: inline-block;
+    overflow: hidden;
+    margin-top: 20px;
+    border-left: 1px solid #ddd;
+}
+.layout {
+	max-width: 1219px;
+    display: block;
+    position: relative;
+    width: 97%;
+    margin: 0 auto;
+
+}
+.clearfix:after, .layout:after, .layout2:after, .imgBox:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ".";
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+ul, ol, li, dl, dt, dd {
+    list-style: none;
+}
+ul {
+	display:block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+li {
+	line-height: 18px;
+    font-size: 16px;
+    text-align: center;
+    display: list-item;
+    text-align: -webkit-match-parent;
+        font-weight: lighter;
+}
+.camp_cont_w ul.camp_tab05 li{
+	position: relative;
+    width: 15.9%;
+    /* float: left; */
+    padding: 15px 2% 15px 2%;
+    text-align: center;
+        font-weight: lighter;
+}
+.camp_cont_w ul.camp_tab05 li.on:first-child {
+    background: #fff  url(../img/dot_8d8d8d.gif) repeat-y left 0;
+}
+
+.camp_cont_w ul.camp_tab05 li.on {
+    border-top: 2px solid #000;
+    height: 51px;
+    float: left;
+    width: 20%;
+/*     height: 53px; */
+    float: left;
+    border-right: 2px solid #ddd;
+    border-bottom: none;
+    background: #fff;
+    text-align: center;
+}
+
+.camp_cont_w ul.camp_tab05 li.on a {
+/*     color: #000; */
+    color: #333;
+    line-height: 53px;
+    font-size: 15px;
+    letter-spacing: -0.08em;
+    text-decoration: none;
+    display: block;
+}
+.camp_cont_w ul.camp_tab05 li.off{
+	float: left;
+    border-right: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    background: #5f5f5f;
+    height: 51px;
+    width: 20%;
+}
+.camp_cont_w ul.camp_tab05 li.off a{
+  	display: block;
+    color: #fff;
+    line-height: 53px;
+    font-size: 15px;
+    letter-spacing: -0.08em;
+        text-decoration: none;
+    display: block;
+}
+a {
+    text-decoration: none;
+}
+a:-webkit-any-link {
+    cursor: pointer;
+}
+
+/* 캠핑장 정보 */
+.cont_tb{
+	margin: 0px;
+    padding: 0px;
+    width: 37%;
+    float: right;
+    height: auto;
+    overflow: hidden;
+    display: block;	
+    background-color: white;
+}
+
+.cont_tb > .table{
+	width: 100%;
+    font-size: 14px;
+    border-collapse: collapse;
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+    background-color: white;
+}
+
+
+.cont_tb tbody tr:nth-child(1) th {
+    border-top: 2px solid #e55450;
+}
+
+.cont_tb tbody tr:nth-child(1) td {
+    border-top: 2px solid #000;
+}
+
+.cont_tb table tr th {
+    padding: 11px 10px;
+    border-bottom: 1px solid #c8c8c8;
+    text-align: left;
+    color: #000;
+    line-height: 25px;
+}
+  
+.cont_tb table tr td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #c8c8c8;
+    line-height: 25px;
+}
+
+.btn_w {
+    width: 100%;
+    position: relative;
+    height: auto;
+    padding: 10px 0 0 0;
+    clear: both;
+}
+
+.btn_w button {
+    margin: 0;
+    display: inline-block;
+    cursor: pointer;
+    text-transform: none;
+    vertical-align: middle;
+}
+
+.best {
+    width: 32%;
+    padding-left: 20px;
+    background: #375b9c url(../img/ico_best.png) no-repeat left 30px center;
+}
+
+.btn_bB1 {
+    background: #375b9c;
+    height: 38px;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+}
+
+.zzim {
+    width: 32%;
+    margin: 0 1%;
+    background: #e32242 url(,,/img/ico_zzim.png) no-repeat left 36px center;
+    padding-left: 20px;
+}
+
+.btn_rB1 {
+    background: #e32242;
+    height: 38px;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+}
+
+.btn_modify {
+    width: 33%;
+}
+
+.btn_gB1 {
+    background: #fff;
+    height: 38px;
+    text-align: center;
+    color: #777;
+    border: 1px solid #bebebe;
+    font-size: 13px;
+}

@@ -1,9 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="AdminDAO">
+
+	<insert id="replayQna">
+	 <!-- 시퀀스 값을 가져와서 rpNo컬럼에 넣어준다 -->
+	<selectKey keyProperty="rpNo" resultType="int" order="BEFORE">
+		select rpSeq.nextval from dual
+	</selectKey>
+	
+			insert into replay(rpNo, rpContent, rpDate, qnaNo) 
+			values(#{rpNo},#{rpContent},#{rpDate}, #{qnaNo})
+		
+	</insert>
+	
+	<!-- 1:1문의 답변 상태 수정 (답변완료)-->
+	<update id="updateReplay">
+		<![CDATA[
+			update qna set adNo=#{adNo} where qnaNo=#{qnaNo}
+		]]>
+	</update>
+	
+	<!-- 1:1문의 답변 상태 수정 (답변삭제)-->
+	<update id="updateReplayDelete">
+		<![CDATA[
+			update qna set adNo=0 where qnaNo=#{qnaNo}
+		]]>
+	</update>
+	
+	<!-- 1:1문의 답변 상세보기-->
+	<select id="getReplay" resultType="admin">
+		<![CDATA[
+			select * from replay where qnaNo=#{qnaNo}
+		]]>
+	</select>
+	
+	<!-- 1:1문의 답변 삭제 -->
+	<delete id="deleteReplay">
+		<![CDATA[
+			delete replay where rpNo=#{rpNo}
+		]]>
+	</delete>
+	
 	<select id="getLogin" resultType="admin">
 		<![CDATA[
 			select * from admin where adId=#{getId} and adPw=#{getPw}
 		]]>
 	</select>
+	
+	<!-- 1:1문의 검색 기능 -->
+	<select id="searchQna" resultType="qna">
+		<![CDATA[
+			select * from qna where condition=#{condition}
+		]]>
+	</select>
+	
+	<!--1:1문의  목록-->
+	<select id="getQna" resultType="qna">
+		<![CDATA[
+			select * from qna order by qnaNo desc
+		]]>
+	</select>
+<!-- select * from (select a.* , rownum as rnum from(select * from qna order by qnaNo desc)a) where rnum >=#{startList} and rnum <= #{listSize} -->
+	<!-- 페이징 -->
+	<select id="getQnaList" resultType="qna" >
+		<![CDATA[ 
+			select * from (select a.* , rownum as rnum from(select * from qna order by qnaNo desc)a) where rnum between #{startList} and  #{startList}+#{listSize}-1 
+		]]>
+	</select>
+	
+	<!-- 총 게시글 수 -->
+	<select id="countQna" resultType="int">
+		<![CDATA[
+			select count(*) from qna where qnaNo > 0 
+		]]>
+	</select>
+	
+	<!-- 1:1문의 조회-->
+	<select id="getAdminQna" resultType="qna">
+		<![CDATA[
+			select * from qna where qnaNo = #{qnaNo}
+		]]>
+	</select>
+	
+	<!--회원목록  -->
+	<select id="adminMem" resultType="member">
+		<![CDATA[
+			select * from (select m.*, rownum as rnum from(select * from member order by memNo desc) m) 
+			where rnum between #{startList}+1 and #{startList} + #{listSize} - 1
+		]]>
+	</select>
+	
+	<!-- 총 회원 수 -->
+	<select id="countMem" resultType="int">
+		<![CDATA[
+			select count(*) from member where memNo > 0 
+		]]>
+	</select>
+	
+	<!--회원 상세보기 -->
+	<select id="getMem" resultType="member">
+		<![CDATA[
+			select * from member where memNo = #{memNo}
+		]]>
+	</select>
+	
+	<!-- 회원 검색 -->
+	<select id="searchMem" resultType="member">
+		<![CDATA[
+			select * from (select m.*, rownum as rnum from(select * from member order by memNo desc)m 			
+			where memId like '%' || #{searchWrd} || '%' 
+			or memName like '%' || #{searchWrd} || '%'
+			order by memNo desc)
+			where rnum between #{startList}+1 and #{startList} + #{listSize} - 1
+
+		]]>
+	</select>
+	
+	<!-- 총 검색 회원 수 -->
+	<select id="countSearchMem" resultType="int">
+		<![CDATA[
+			select count(*) from member 
+			where memId like '%' || #{searchWrd} || '%' 
+			or memName like '%' || #{searchWrd} || '%'
+			order by memNo desc 
+		]]>
+	</select>
+	
+	<!--회원 삭제 -->
+	<delete id="deleteMem">
+		<![CDATA[
+			delete member where memNo=#{memNo}
+		]]>
+	</delete>
+	
+	<!--댓글목록  -->
+	<select id="adminCom" resultType="comment">
+		<![CDATA[
+			select * from (select c.*, rownum as rnum from(select * from rv_comment order by comNo desc) c) where rnum between #{startList}+1 and #{startList} + #{listSize} - 1
+		]]>
+	</select>
+	
+	<!-- 댓글 검색 -->
+	<select id="searchCom" resultType="comment">
+		<![CDATA[
+			select * from (select c.*, rownum as rnum from(select * from rv_comment order by comNo desc)c 			
+			where memId like '%' || #{searchWrd} || '%' 
+			order by comNo desc)
+			where rnum between #{startList}+1 and #{startList} + #{listSize} - 1
+
+		]]>
+	</select>
+	
+	<!-- 총 댓글 검색 수 -->
+	<select id="countSearchCom" resultType="int">
+		<![CDATA[
+			select count(*) from rv_comment 
+			where memId like '%' || #{searchWrd} || '%' 
+			order by memNo desc 
+		]]>
+	</select>
+	
+	<!-- 총 댓글 수 -->
+	<select id="countCom" resultType="int">
+		<![CDATA[
+			select count(*) from rv_comment where comNo > 0 
+		]]>
+	</select>
+	
+	<!--댓글 상세보기  -->
+	<select id="getCom" resultType="comment">
+		<![CDATA[
+			select * from rv_comment where comNo=#{comNo}
+		]]>
+	</select>
+	
+	<!--댓글 삭제 -->
+	<delete id="deleteCom">
+		<![CDATA[
+			delete rv_comment where comNo=#{comNo}
+		]]>
+	</delete>
 </mapper>

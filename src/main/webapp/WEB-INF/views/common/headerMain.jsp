@@ -9,77 +9,31 @@ response.setDateHeader("Expires", 0L);
 %>
 <%String memId = (String)session.getAttribute("memId"); %>
 <%int memNo = (Integer) session.getAttribute("memNo"); %>
+<%String adId = (String)session.getAttribute("adId"); %>
+<%int adNo = (Integer)session.getAttribute("adNo"); %>
 <!DOCTYPE html>
 <html>
 <head>
 
 <link type="text/css" href="<c:url value='/css/main.css'/>" rel="stylesheet">
-
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/fontawesome.min.css'/> ">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 <script src="./js/jquery-3.5.1.min.js"></script>
-<!-- 
-<script type="text/javascript">
-	var url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/searchList'; 
-	var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'Po8b3s%2BelMewEpuJuSSNclaKWDReZThq%2FrOSAU0x%2BqHff1gACrKi1G3eez3LwxPQLMoN9ntPatUmspBAZTJd5w%3D%3D'; 
-	queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); 
-	queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); 
-	queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); 
-	queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); 
-	queryParams += '&' + encodeURIComponent('keyword') + '=' + encodeURIComponent('남양주');
- 	/*
- 	queryParams += '&' + encodeURIComponent('mapX') + '=' + encodeURIComponent('128.6142847'); //경도
-	queryParams += '&' + encodeURIComponent('mapY') + '=' + encodeURIComponent('36.0345423');  // 위도
-	queryParams += '&' + encodeURIComponent('radius') + '=' + encodeURIComponent('2000'); // 거리 반경*/
-	queryParams += '&_type=json';
-	
-	var mapX = "";
-	var mapY = "";
-	
-	var camname = "";
 
-	$.ajax({
-			method: "GET",
-			url: url + queryParams,
-	}).done(function(msg) {
-			
-			console.log(msg);
-			
-			/*console.log(msg.response.body.items.item[0].addr1);*/
- 		 	addr = msg.response.body.items.item.addr1 
- 		 	mapX = msg.response.body.items.item.mapX
- 		 	mapY = msg.response.body.items.item.mapY
- 		 	camname = msg.response.body.items.item.facltNm
- 		 	contentId = msg.response.body.item.itme.contentId
- 		 	
-	  		$( "#message1" ).append( addr );
-			$("#message1").append(msg.response.body.items.item.contentId);
-	 		$( "#message1" ).append( msg.response.body.items.item.animalCmgCl );
-	 		$( "#message1" ).append( msg.response.body.items.item.brazierCl );
-			$( "#message1" ).append( '<img src="' +msg.response.body.items.item.firstImageUrl+ '" />' )
-			
-			
-			$( "#message2" ).append( msg.response.body.items.item.addr1 );
-			$( "#message2" ).append( '<img src="' +msg.response.body.items.item.firstImageUrl+ '" />' )
-			
-			$( "#message3" ).append( msg.response.body.items.item.addr1 );
-			$( "#message3" ).append( msg.response.body.items.item.addr1 ); 
-
-			
-			  
-	});
-	
-</script> 
--->
 <script type="text/javascript">
 /* id값 유무에 따라서 (회원가입, 로그인, 마이페이지, 로그아웃 ) 버튼 숨기기 */
 	$(function(){
-		if($('#sessionId').val()== ""){
+		if($('#sessionId').val()== "" && $('#adId').val()==""){
 			$('#mypage').hide();
 			$('#logout').hide();
-		}else {
+		}else{
 			$('#join').hide();
 			$('#login').hide();
-			
-		}	
+		}
+		
+		if($('#sessionId').val()== "" && $('#adId').val()!=""){
+			$('.ad').attr('href', '<c:url value="admin.do"/>');
+		}
 	});
 
 </script>
@@ -138,6 +92,7 @@ response.setDateHeader("Expires", 0L);
 <body>
 	 <input type="hidden" id="sessionId" value="${memId}">
 	 <input type="hidden" id="sessionNo" value="${memNo}">
+	 <input type="hidden" id="adId" value="${adId}">
 	<div class="main_img">
 	<div class="main_header">
 	<div class="main_logo">
@@ -145,17 +100,17 @@ response.setDateHeader("Expires", 0L);
 	</div>
 	<div class="main_menu">
 		<ul >
-			<li class="limenu"><a href="#" class="amenu"><img src="<c:url value='/img/search1.png'/> "></a></li>
+			<li class="limenu"><a href="<c:url value='/searchPage.do'/>" class="amenu"><img src="<c:url value='/img/search1.png'/> "></a></li>
 			<li class="limenu slide1"><a href="<c:url value='review.do'/>" class="amenu"><img src="<c:url value='/img/comm1.png'/> "></a>
 				<ul class="subslide1">
-					<li class="listyle"><a href="<c:url value='review.do'/>"  class="astyle">-캠핑 후기</a></li>
-					<li class="listyle"><a href="#" class="astyle">-캠핑 음식</a></li>
-					<li class="listyle"><a href="#" class="astyle">-캠핑 팁</a></li>
+					<li class="listyle"><a href="<c:url value='review.do'/>"  class="astyle"><i class="fas fa-angle-right"></i> 캠핑 후기</a></li>
+					<li class="listyle"><a href="<c:url value='food.do'/>" class="astyle"><i class="fas fa-angle-right"></i> 캠핑 음식</a></li>
+					<li class="listyle"><a href="<c:url value='tip.do'/>" class="astyle"><i class="fas fa-angle-right"></i> 캠핑 팁</a></li>
 		    	</ul>
 			</li>
 			<li class="limenu slide2"><a href="#" class="amenu"><img src="<c:url value='/img/notice1.png'/> "></a>
 				<ul class="subslide2">
-					<li class="listyle"><a href="#" class="astyle">-문의하기</a></li>
+					<li class="listyle"><a href="<c:url value='notice.do'/>" class="astyle"><i class="fas fa-angle-right"></i> 공지사항</a></li>
 		    	</ul>
 			</li>
 	<%--  		<li class="limenu" id="join"><a href="<c:url value='join.do'/>" class="amenu">회원가입</a></li>  --%>
@@ -164,7 +119,7 @@ response.setDateHeader("Expires", 0L);
 					<li class="listyle"><a href="<c:url value='join.do'/>" class="astyle">회원가입</a></li>
 		    	</ul> --%>
 			</li>
-			<li class="limenu slide4" id="mypage"><a href="<c:url value='mypage.do'/>" class="amenu"><img src="<c:url value='/img/mypage1.png'/> "></a>
+			<li class="limenu slide4" id="mypage"><a href="<c:url value='mypage.do?memNo=${memNo }'/>" class="amenu ad"><img src="<c:url value='/img/mypage1.png'/> "></a>
 			<%-- 	<ul class="subslide4">
 					<li class="listyle"><a href="<c:url value='logout.do'/>" class="astyle">로그아웃</a></li>
 		    	</ul> --%>
@@ -173,4 +128,4 @@ response.setDateHeader("Expires", 0L);
 		</ul>
 	</div>
 	</div>
-
+	

@@ -1,0 +1,167 @@
+@charset "UTF-8";
+form {
+    display: block;
+}
+
+.basic_title {
+    position: relative;
+    font-size: 20px;
+    font-weight:normal;
+    color: #000;
+    padding-left: 29px;
+    line-height: 27px;
+    background: url(../img/icon_h3.gif) no-repeat left 6px;
+    margin: 40px 0 13px 0;
+    letter-spacing: -0.08em;
+    word-break: break-all;
+}
+.board_form {
+    position: relative;
+    width: 100%;
+    clear: both;
+    border-top: 2px solid #474747;
+    border-bottom: 1px solid #474747;
+    font-size: 15px;
+    border-collapse: collapse;
+    padding: 0;
+    background: #f9fafb;
+}
+.find_info {
+    padding: 40px 0 40px 100px;
+}
+.board_form .table_form {
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+    display: table;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+strong {
+    font-weight: bold;
+}
+tbody {
+	width:1000px;
+    display: inline-grid;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-column;
+    vertical-align: inherit;
+    border-color: inherit;
+    padding-bottom: 20px;
+}
+.board_form .table_form th {
+    padding: 15px 10px;
+    line-height: 18px;
+    font-weight: normal;
+    color: #333;
+}
+.w20 {
+    width: 20% !important;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    text-align: -internal-center;
+}
+label {
+    cursor: default;
+}
+.board_form .table_form td {
+    padding: 10px 15px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #777;
+}
+.w80 {
+    width: 80% !important;
+}
+td {
+    display: unset;
+    vertical-align: inherit;
+}
+.board_form .table_form #qnaContent, .board_form .table_form #rpContent{
+	height: 300px;
+}
+.board_form .table_form input, .board_form .table_form textarea {
+    width: 98.5%;
+   /*  border: 1px solid #c7c7c7; */
+    height: 35px;
+    font-size: 12px;
+    margin: 1px 0px;
+    line-height: 35px;
+    background: #fff;
+    /* box-sizing: border-box; */
+}
+input, textarea {
+    padding: 0 8px;
+    color: inherit;
+    vertical-align: middle;
+}	
+input[type="password" i] {
+    -webkit-text-security: disc !important;
+}
+input, textarea {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    
+}
+.find_idBtn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.find_idBtn > button {
+    padding: 20px 60px !important;
+    background: #333;
+}
+.btn_black_L {
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-family:'G마켓 산스';
+    font-weight: lighter;
+}
+button, [type="button"], [type="reset"], [type="submit"] {
+    cursor: pointer;
+}
+button {
+ 	text-transform: none;
+    vertical-align: middle;
+    border: 0px;
+    background: transparent;
+    letter-spacing: -1px;
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    align-items: flex-start;
+    box-sizing: border-box;
+    font: 400 13.3333px Arial;
+}	

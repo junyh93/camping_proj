@@ -1,0 +1,85 @@
+@charset "UTF-8";
+.bbs_total {
+	position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+    text-align: right;
+    clear: both;
+}
+.bbs_total span:first-child {
+    background: url(../img/total_icon.gif) no-repeat 0 7px;
+    padding-left: 22px;
+}
+.bbs_total span {
+    display: inline-block;
+}
+.bbs_total span > strong {
+    color: #3267a8;
+}
+strong {
+    font-weight: bold;
+}
+.board_list {
+    position: relative;
+    width: 100%;
+    clear: both;
+    border-top: 2px solid #474747;
+    font-size: 15px;
+    border-collapse: collapse;
+}
+.board_list .table_list {
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+}
+table {
+    display: table;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.board_list .table_list th {
+    padding: 25px 10px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fbfdff;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    text-align: -internal-center;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.board_list .table_list td {
+    padding: 27px 15px;
+    line-height: 18px;
+    font-weight: normal;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+    letter-spacing: -0.05em;
+}
+.t_c {
+    text-align: center !important;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}

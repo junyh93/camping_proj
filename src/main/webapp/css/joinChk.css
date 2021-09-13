@@ -1,0 +1,141 @@
+@charset "UTF-8";
+#sp-content{
+	margin-top: 100px;
+}
+.sp-title {
+    position: relative;
+}
+.sp-title--box[scope="sub"] {
+    padding: 50px 0 80px 0;
+    text-align: center;
+}
+.sp-title--box[scope="sub"] .sp-title--text {
+    font-size: 27px;
+    /* font-weight: bold; */
+    font-weight: 900;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.sp-title--box[scope="sub"] .sp-title--subtext {
+    font-size: 14px;
+    color: #999;
+}
+.sp-size__inside {
+    width: 40%;
+    min-width: 800px;
+    margin: 0 auto;
+}
+.sp-sub-member--login {
+    font-size: 0;
+    text-align: center;
+    position: relative;
+}
+.sp-sub-member--login-block {
+    font-size: 12px;
+    text-align: left;
+}
+element.style {
+    opacity: 1;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+}
+i {
+    font-style: italic;
+}
+.sp-title--box[scope^="t5"] {
+    position: relative;
+    padding: 5px 0;
+    margin: 0 0 13px 0;
+    border-bottom: 3px solid #444;
+}
+.sp-title--box[scope^="t5"] .sp-title--text {
+    display: inline-block;
+    font-size: 17px;
+    font-weight: bold;
+    font-weight: 900;
+}
+.sp-title--box[scope^="t5"] .sp-title--subtext {
+    padding: 0 0 0 12px;
+    margin-left: 12px;
+    color: #999;
+    position: relative;
+    top: -2px;
+}
+.board_list {
+    position: relative;
+    width: 700px;
+    clear: both;
+    border-top: 2px solid #474747;
+    font-size: 15px;
+    border-collapse: collapse;
+    margin-left: 500px;
+}
+.board_list .table_list {
+    width: 100%;
+}
+.board_list .table_list th {
+    padding: 25px 10px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fbfdff;
+}
+.board_list .table_list .board_tit {
+    text-align: left;
+    padding: 11px 14px 13px;
+    font-weight: lighter;
+}
+.board_list .table_list td {
+    line-height: 18px;
+    font-weight: normal;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+    letter-spacing: -0.05em;
+}
+.find_idBtn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+.find_idBtn > button {
+    padding: 20px 60px !important;
+    background: #333;
+    width: 170px;
+}
+.btn_black_L {
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-family:'G마켓 산스';
+    font-weight: lighter;
+}
+button, [type="button"], [type="reset"], [type="submit"] {
+    cursor: pointer;
+}
+button {
+ 	text-transform: none;
+    vertical-align: middle;
+    border: 0px;
+    background: transparent;
+    letter-spacing: -1px;
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    align-items: flex-start;
+    box-sizing: border-box;
+    font: 400 13.3333px Arial;
+}	
+.btn_black_L a {
+    text-decoration: none;
+    color: #fff;
+}

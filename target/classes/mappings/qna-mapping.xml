@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QnaDAO">
+
+	<insert id="insertQna">
+	 <!-- 시퀀스 값을 가져와서 memNo컬럼에 넣어준다 -->
+	<selectKey keyProperty="qnaNo" resultType="int" order="BEFORE">
+		select qnaSeq.nextval from dual
+	</selectKey>
+	
+			insert into qna(qnaNo, qnaTitle, qnaContent, qnaDate, memNo, memId, adNo, condition) 
+			values(#{qnaNo},#{qnaTitle},#{qnaContent},#{qnaDate},#{memNo},#{memId},0,#{condition})
+		
+	</insert>
+	
+	<!-- 1:1문의 수정 -->
+	<update id="updateQna">
+		<![CDATA[
+			update qna set qnaTitle=#{qnaTitle}, qnaContent=#{qnaContent}, qnaDate=#{qnaDate}, condition=#{condition} where memNo=#{memNo}
+		]]>
+	</update>
+	
+	<!-- 1:1문의 삭제 -->
+	<delete id="deleteQna">
+		<![CDATA[
+			delete qna where qnaNo=#{qnaNo}
+		]]>
+	</delete>
+	
+	<!--1:1문의  -->
+	<select id="getQna" resultType="qna">
+		<![CDATA[
+			select * from qna where qnaNo=#{qnaNo}
+		]]>
+	</select>
+	
+	<!--1:1문의  목록-->
+	<select id="getQnaList" resultType="qna">
+		<![CDATA[
+			select * from qna where memNo=#{memNo}
+		]]>
+	</select>
+</mapper>

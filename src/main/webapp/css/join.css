@@ -12,7 +12,8 @@ body {
 }
 section{
 	height:50%;
-	
+	margin-top: 150px;
+	clear: both;
 }
 #logo {
     width: 240px;

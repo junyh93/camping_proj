@@ -1,0 +1,229 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	font-family:'G마켓 산스';
+	font-weight: normal; 
+}
+
+body{
+	background:#FFF;
+	margin: 0;
+    height: 100%;
+
+}
+.gallery_style{
+	clear:both;
+ 	width:1200px;
+ 	flex-direction:column;
+	align-items:center;
+	margin: 250px;
+	
+}
+.tit{
+	 font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -1px;
+    padding: 4px 0 15px;
+    color: #333;
+}
+h2{
+	display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.tse-content {
+	overflow: hidden;
+    background: #dcdde3;
+	
+}
+#bbslist.gallery_style .listwrap {
+    /* display: none; */
+    margin: 20px 40px 20px 20px;
+    position: relative;
+}
+#bbslist.gallery_style .listwrap .cols {
+    /* margin: 0; */
+    /* position: relative; */
+    /* width: 250px; */
+    min-height: 340px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px 10px 0;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 10%);
+    background: #fff;
+}
+#bbslist.gallery_style .listwrap .cols:after {
+    content: "";
+    display: block;
+    float: none;
+    clear: both;
+}
+input, select, textarea {
+    font-size: 12px;
+}
+input[type="hidden" i] {
+    display: none;
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    padding: initial;
+    border: initial;
+}
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+    margin: 0em;
+}
+#bbslist.gallery_style .listwrap .cols .photo {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+    padding-bottom: 150px;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+#bbslist.gallery_style .listwrap .cols .photo img.tm {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+}
+img, p {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+img[Attributes Style] {
+    width: 100%;
+}
+#bbslist.gallery_style .listwrap .cols .contbottom {
+    position: relative;
+    padding: 8% 10%;
+}
+#bbslist.gallery_style .listwrap .cols .contbottom .subject {
+    font-size: 18px;
+    letter-spacing: -0.04em;
+    margin-bottom: 8px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#bbslist.gallery_style .listwrap .cols .contbottom .cont {
+    font-size: 13px;
+    letter-spacing: -0.01em;
+    margin-bottom: 15px;
+    color: #888;
+    line-height: 1.5;
+    font-weight: 400;
+}
+#bbslist.gallery_style .listwrap .cols .contbottom .namedate {
+    margin: 20px 0 0 0;
+    font-size: 13px;
+    color: #808080;
+}
+#bbslist.gallery_style .listwrap .cols .contbottom .namedate .date {
+    float: left;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.fa-clock-o:before {
+    content: "\f017";
+}
+.fa-comment-o:before {
+    content: "\f0e5";
+}
+#bbslist.gallery_style .listwrap .cols .contbottom .namedate .shc {
+    float: right;
+    color: #666;
+    margin-top: 5px;
+    font-size: 13px;
+}
+#bbslist.gallery_style .listwrap .cols .contbottom .namedate .shc i {
+    color: #b0b0b0;
+}
+#sub_title_wrap {
+    position: relative;
+    width: 100%;
+    clear: both;
+}
+.layout, .layout2 {
+    display: block;
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+.clearfix:after, .layout:after, .layout2:after, .imgBox:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ".";
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+.s_title {
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+    top: 70px;
+    text-shadow: 2px 2px 3px rgb(0 0 0);
+}
+.s_title .tt1dept {
+    font-size: 40px;
+    line-height: 40px;
+}
+.s_title p {
+    display: block;
+}
+.s_title .s_tt {
+    font-size: 20px;
+    clear: both;
+    margin: 0;
+    letter-spacing: -2px;
+    color: #fff;
+    padding: 10px 0 0 0;
+}
+.s_bg_w {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+/* 배너 이미지 */
+.s_bg_w .s_bg_03 {
+    min-height: 250px;
+    background: url(../img/food.jpg) no-repeat center bottom;
+}

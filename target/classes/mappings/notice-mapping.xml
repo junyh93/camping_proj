@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoticeDAO">
+
+	<insert id="insertNotice">
+	 <!-- 시퀀스 값을 가져와서 noticeNo컬럼에 넣어준다 -->
+	<selectKey keyProperty="noticeNo" resultType="int" order="BEFORE">
+		select noticeSeq.nextval from dual
+	</selectKey>
+			insert into notice(noticeNo, noticeTitle, noticeContent, noticeDate, adName) 
+			values(#{noticeNo},#{noticeTitle},#{noticeContent}, #{noticeDate}, '관리자')
+	</insert>
+	
+	<!--공지사항 수정-->
+	<update id="updateNotice">
+		<![CDATA[
+			update notice set noticeTitle=#{noticeTitle}, noticeContent=#{noticeContent}, noticeDate=#{noticeDate} where noticeNo=#{noticeNo}
+		]]>
+	</update>
+	
+	<!-- 공지사항 삭제 -->
+	<delete id="deleteNotice">
+		<![CDATA[
+			delete notice where noticeNo=#{noticeNo}
+		]]>
+	</delete>
+	
+	<!-- 공지사항 상세보기-->
+	<select id="getNotice" resultType="notice">
+		<![CDATA[
+			select * from notice where noticeNo=#{noticeNo}
+		]]>
+	</select>
+	
+	<!-- 공지사항 조회수 -->
+	<update id="noticeHit" parameterType="int">
+	<![CDATA[
+		update notice set noticeHit=noticeHit+1 where noticeNo=#{noticeNo}
+    	]]>
+    </update>
+	
+	<!-- 공지사항 목록-->
+	<select id="getNoticeList" resultType="notice">
+		<![CDATA[
+			select * from (select n.*, rownum as rnum from(select * from notice order by noticeNo desc) n) where rnum between #{startList}+1 and #{startList} + #{listSize} - 1
+		]]>
+	</select>
+	
+	<!-- 공지사항 메인 목록-->
+	<select id="getNoticeMain" resultType="notice">
+		<![CDATA[
+			select * from notice order by noticeNo desc
+		]]>
+	</select>
+	
+	<!-- 공지사항 검색 -->
+	<select id="getSearchList" resultType="notice">
+		<![CDATA[
+			select * from (select n.*, rownum as rnum from(select * from notice order by noticeNo desc)n 			
+			where noticeTitle like '%' || #{searchWrd} || '%' 
+			or noticeContent like '%' || #{searchWrd} || '%'
+			order by noticeNo desc)
+			where rnum between #{startList}+1 and #{startList} + #{listSize} - 1
+
+		]]>
+	</select>
+	
+	<!-- 총 게시글 수 -->
+	<select id="countNotice" resultType="int">
+		<![CDATA[
+			select count(*) from notice where noticeNo > 0 
+		]]>
+	</select>
+	
+	<!-- 총 게시글 수 -->
+	<select id="countSearchNotice" resultType="int">
+		<![CDATA[
+			select count(*) from notice 
+			where noticeTitle like '%' || #{searchWrd} || '%' 
+			or noticeContent like '%' || #{searchWrd} || '%'
+			order by noticeNo desc 
+		]]>
+	</select>
+
+</mapper>

@@ -62,9 +62,11 @@ body{
 	padding-top: 13px;
 	  width: 465px;
 	  height :48px;
+	  
 }
 
 .login-button-wrap button{
+	 border-radius: 5px;
 	    width: 100%;
     padding: 21px 0 17px;
     border: 0;
@@ -88,95 +90,45 @@ body{
     border: solid 1px var(--naver-green-border-color);
 	
 }
-.form-container{
-	display:inline-block;
-	align-items:center;
-	margin-left: 600px;
-	  margin-top: 20px;
+.find_idBtn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 35px 0;
 }
-
-.formid{
-	 width:230px;
-  height:40px;
-
-
-/*   border-radius: 4px; */ 
-  background:DarkGray;
-  color: #fff;
-  margin: 20px 5px;
-  border: solid 1px DarkGray;
-  float: left;
-	
+.find_idBtn > button {
+    padding: 20px 60px !important;
+    background: #333;
+    width: 230px;
 }
-
-.formpw{
-	 width:230px;
-  height:40px;
-
-
-/*   border-radius: 4px; */ 
-  background:DarkGray;
-  color: #fff;
-   margin: 20px 5px;
-  border: solid 1px DarkGray;
-  float: left;
-	
-}
-
- .login-button-wrap-id{
-  width:200px;
-  height:40px;
+.btn_black_L {
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
   
- 
-text-align:center;
-
-
-  background:DarkGray;
-  color: #fff;
-
-  border: solid 1px DarkGray;
-  float: left;
-	
- }
-.findid{
-  width:200px;
-  height:40px;
-
-align-items:center;
-  background:DarkGray;
-  color: #fff;
- border: solid 1px DarkGray;
-  float: right;
-	
-} 
-
-.login-button-wrap-pw{
-  width:200px;
-  height:40px;
-
-
-
-align-items:center;
- 
-  background:DarkGray;
-  color: #fff;
-
-  border: solid 1px DarkGray;
-  float: left;
-	
- }
-
-.findpw{
-	  width:200px;
-  height:40px;
-
-
- align-items:center;
-  background:DarkGray;
-  color: #fff;
-   border: solid 1px DarkGray;
-
-  float: right;
-	
-	
+    font-weight: lighter;
+}
+button, [type="button"], [type="reset"], [type="submit"] {
+    cursor: pointer;
+}
+button {
+ 	text-transform: none;
+    vertical-align: middle;
+    border: 0px;
+    background: transparent;
+    letter-spacing: -1px;
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    align-items: flex-start;
+    box-sizing: border-box;
+    font: 400 13.3333px;
+}	
+.btn_black_L a {
+    text-decoration: none;
+    color: #fff;
 }

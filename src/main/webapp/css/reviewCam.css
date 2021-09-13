@@ -1,0 +1,115 @@
+@charset "UTF-8";
+.camp_search_list {
+    position: relative;
+    width: 100%;
+    height: auto;
+    clear: both;
+}
+div {
+    display: block;
+}
+.icon_h3 {
+    position: relative;
+    font-size: 20px;
+    font-weight:bold;
+    color: #000;
+    padding-left: 29px;
+    line-height: 27px;
+    background: url(../img/icon_h3.gif) no-repeat left 6px;
+    margin: 40px 0 13px 0;
+    letter-spacing: -0.08em;
+    word-break: break-all;
+}
+.bbs_total {
+    display: block;
+    margin-bottom: 10px;
+    text-align: right;
+}
+p {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.bbs_total span:first-child {
+    background: url(../img/total_icon.gif) no-repeat 0 1px;
+    padding-left: 22px;
+}
+.bbs_total span:last-child {
+    padding-left: 10px;
+    margin-left: 10px;
+    background: url(../img/line_h11.gif) no-repeat 0 4px;
+}
+.bbs_total span {
+    display: inline-block;
+}
+.bbs_total span > strong {
+    color: #3267a8;
+}
+strong {
+    font-weight: bold;
+}
+.board_list {
+    position: relative;
+    width: 100%;
+    clear: both;
+    border-top: 2px solid #474747;
+    font-size: 15px;
+    border-collapse: collapse;
+}
+.board_list .table_list {
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+}
+table {
+    display: table;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.board_list .table_list th {
+    padding: 25px 10px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fbfdff;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    text-align: -internal-center;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.board_list .table_list td {
+    padding: 27px 15px;
+    line-height: 18px;
+    font-weight: normal;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+    letter-spacing: -0.05em;
+}
+.t_c {
+    text-align: center !important;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}

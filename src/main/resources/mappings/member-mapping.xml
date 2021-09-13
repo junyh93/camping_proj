@@ -27,10 +27,24 @@
 		]]>
 	</update>
 	
+	<!-- 회원 정보 -->
+	<select id="memInfo" resultType="member">
+		<![CDATA[
+			select * from member where memNo=#{memNo}
+		]]>
+	</select>
 	
+	<!-- 회원 확인 -->
+	<select id="memChk" resultType="int">
+		<![CDATA[
+			select count(*) from member where memId=#{memId} and memPw=#{memPw}
+		]]>
+	</select>
+	
+	<!-- 회원 탈퇴 -->
 	<delete id="deleteMember">
 		<![CDATA[
-			delete member where id=#{id}
+			delete member where memNo=#{memNo}
 		]]>
 	</delete>
 	

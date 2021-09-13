@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RecommendDAO">
+<!-- 추천 -->
+	<!-- 캠핑장 추천 -->
+	<insert id="insertRecommend">
+	<!-- 시퀀스 값을 가져와서 kpNo컬럼에 넣어준다 -->
+	<selectKey keyProperty="recNo" resultType="int" order="BEFORE">
+		select recSeq.nextval from dual
+	</selectKey>
+
+			insert into recommend(recNo, memNo, contentId)
+			values(#{recNo}, #{memNo}, #{contentId})
+	</insert>
+	
+	<!-- 동일 캠핑장 추천 여부 검색 -->
+	<select id="recChk"  resultType="int">
+		<![CDATA[
+			select count(*) from recommend where contentId = #{contentId} and memNo=${memNo}
+		]]>
+	</select>
+
+	<!-- 캠핑장 추천 취소 -->
+	<delete id="deleteRecommend">
+		<![CDATA[
+			delete from recommend where contentId = #{contentId} and memNo=${memNo}
+		]]>
+	</delete>
+
+		<!-- 게시글 추천수 -->
+	<select id="recCount" parameterType="int" resultType="int">
+		<![CDATA[
+			select count(*) from recommend where contentId = #{contentId}
+		]]>
+	</select>
+	
+	
+	
+<!-- 좋아요 -->	
+	<!-- 좋아요 -->
+	<insert id="insertLike">
+	<!-- 시퀀스 값을 가져와서 gdNo컬럼에 넣어준다 -->
+	<selectKey keyProperty="gdNo" resultType="int" order="BEFORE">
+		select gdSeq.nextval from dual
+	</selectKey>
+			insert into good(gdNo, memNo, id)
+			values(#{gdNo}, #{memNo}, #{id})
+	</insert>
+	
+	<!-- 동일 게시글 좋아요 여부 검색 -->
+	<select id="likChk"  resultType="int">
+		<![CDATA[
+			select count(*) from good where id = #{id} and memNo=${memNo}
+		]]>
+	</select>
+
+	<!-- 좋아요 취소 -->
+	<delete id="deleteLike">
+		<![CDATA[
+			delete from good where id = #{id} and memNo=${memNo}
+		]]>
+	</delete>
+
+	<!-- 좋아요수 -->
+	<select id="likCount"  resultType="int">
+		<![CDATA[
+			select count(*) from good where id = #{id}
+		]]>
+	</select>
+	
+	
+	
+<!-- 싫어요 -->	
+	<!-- 싫어요 -->
+	<insert id="insertHate">
+	<!-- 시퀀스 값을 가져와서 hatNo컬럼에 넣어준다 -->
+	<selectKey keyProperty="hatNo" resultType="int" order="BEFORE">
+		select hatSeq.nextval from dual
+	</selectKey>
+			insert into hate(hatNo, memNo, id)
+			values(#{hatNo}, #{memNo}, #{id})
+	</insert>
+	
+	<!-- 동일 게시글 싫어요 여부 검색 -->
+	<select id="hatChk"  resultType="int">
+		<![CDATA[
+			select count(*) from hate where id = #{id} and memNo=${memNo}
+		]]>
+	</select>
+
+	<!-- 싫어요 취소 -->
+	<delete id="deleteHate">
+		<![CDATA[
+			delete from hate where id = #{id} and memNo=${memNo}
+		]]>
+	</delete>
+
+	<!-- 싫어요수 -->
+	<select id="hatCount"  resultType="int">
+		<![CDATA[
+			select count(*) from hate where id = #{id}
+		]]>
+	</select>
+	
+</mapper>

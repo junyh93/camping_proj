@@ -1,0 +1,284 @@
+@charset "UTF-8";
+.camp_search_list {
+    position: relative;
+    width: 100%;
+    height: auto;
+    clear: both;
+}
+.mypage_g1{
+	    clear: both;
+    position: relative;
+    color: #626262;
+    letter-spacing: -0.5px;
+}
+.total_search_w2 {
+    background: #f6f8f8;
+    padding: 20px 30px 20px 30px;
+    display: block;
+    text-align: center;
+    border: 1px solid #dedede;
+    margin-bottom: 20px;
+}
+.total_search_w2 .myp02 {
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+}
+select.selectR {
+    width: auto;
+    padding: 10px 100px 10px 30px;
+    font-family: inherit;
+    border: 1px solid #c7c7c7;
+    font-size: 14px;
+    line-height: 25px;
+    margin-right: 5px;
+    box-sizing: border-box;
+    height: 47px;
+}
+select {
+	    font: 400 13.3333px;
+	    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    cursor: default;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+	letter-spacing: normal;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: none;
+    color: inherit;
+    text-transform: none;
+    vertical-align: middle;
+}
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    
+}
+
+.total_search_w2 .myp02 .sc_camp {
+    display: inline-block;
+    padding: 0 10px;
+    width: 500px;
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    font-size: 16px;
+    text-align: left;
+    box-sizing: border-box;
+}
+.total_search_w2 .camp_search {
+    width: 89%;
+    background: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 11px 10px;
+    background: none;
+    border: none;
+}
+input {
+	    font: 400 13.3333px;
+	    -webkit-rtl-ordering: logical;
+    cursor: text;
+	    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+	    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: inherit;
+    vertical-align: middle;
+}
+.total_search_w2 .myp02 .sc_camp button {
+    width: 24px;
+    height: 24px;
+    background: url(../img/ico_search.png) no-repeat right center;
+}
+button, [type="button"], [type="reset"], [type="submit"] {
+    cursor: pointer;
+}
+button {
+	    font: 400 13.3333px;
+	box-sizing: border-box;
+	text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+	word-spacing: normal;
+	appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+	    letter-spacing: -1px;
+	    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    text-transform: none;
+    vertical-align: middle;
+}
+.icon_h3 {
+    position: relative;
+    font-size: 20px;
+    font-weight:normal;
+    color: #000;
+    padding-left: 29px;
+    line-height: 27px;
+    background: url(../img/icon_h3.gif) no-repeat left 6px;
+    margin: 40px 0 13px 0;
+    letter-spacing: -0.08em;
+    word-break: break-all;
+}
+div {
+    display: block;
+}
+.bbs_total {
+    display: block;
+    margin-bottom: 10px;
+    text-align: right;
+}
+p {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.bbs_total span:first-child {
+    background: url(../img/total_icon.gif) no-repeat 0 1px;
+    padding-left: 22px;
+}
+.bbs_total span:last-child {
+    padding-left: 10px;
+    margin-left: 10px;
+    background: url(../img/line_h11.gif) no-repeat 0 4px;
+}
+.bbs_total span {
+    display: inline-block;
+}
+.bbs_total span > strong {
+    color: #3267a8;
+}
+strong {
+    font-weight: bold;
+}
+.board_list {
+    position: relative;
+    width: 100%;
+    clear: both;
+    border-top: 2px solid #474747;
+    font-size: 15px;
+    border-collapse: collapse;
+}
+.board_list .table_list {
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+}
+table {
+    display: table;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.board_list .table_list th {
+    padding: 25px 10px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fbfdff;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    text-align: -internal-center;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.board_list .table_list td {
+    padding: 27px 15px;
+    line-height: 18px;
+    font-weight: normal;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+    letter-spacing: -0.05em;
+}
+.t_c {
+    text-align: center !important;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+.b_btn_blue{
+	background-color: #455db4;
+    font-size: 14px;
+    font-weight: lighter;
+    color: #fff;
+	
+}
+.pageInfo_wrap{
+    width: 100%;
+    clear: both;
+    height: auto;
+    margin-top: 40px;
+    overflow: hidden;
+    text-align: center;
+}
+.pageInfo{
+	clear:both;
+      list-style : none;
+      display: inline-block;    
+ }
+.pageInfo li{
+	display: inline-block;
+    margin: 0 2px;
+	width: 32px;
+    height: 32px;
+    background: url(../img/btn_bg.png) no-repeat;
+    text-align: center;
+    font-size: 14px;
+ }
+ .pageInfo ul li a {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+a:link {color:black; text-decoration: none;}
+a:visited {color:black; text-decoration: none;}
+a:hover {color:black; text-decoration: underline;}
+.pageInfo li.active{
+     width: 32px;
+    height: 32px;
+    background: url(../img/btn_bg_on.png) no-repeat;
+    text-align: center;
+    font-size: 14px;
+  }

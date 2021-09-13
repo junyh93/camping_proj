@@ -1,0 +1,166 @@
+@charset "UTF-8";
+/* myheader 시작 */
+#sub_title_wrap {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    clear: both;
+}
+.layout, .layout2 {
+    display: block;
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+.clearfix:after, .layout:after, .layout2:after, .imgBox:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ".";
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.skip {
+    overflow: hidden;
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+    width: auto;
+    height: 1px;
+    text-indent: -999px;
+    z-index: -999;
+}
+.s_title {
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+    top: 95px;
+    text-shadow: 2px 2px 3px rgb(0 0 0);
+}
+.s_bg_w {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+.s_bg_w .s_bg_02 {
+    min-height: 240px;
+    background: url(../img/s_bg_01.jpg) no-repeat center center;
+}
+
+#section1 {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+#cont_inner {
+    width: 100%;
+    position: relative;
+    height: auto;
+    clear: both;
+    padding: 15px 0 95px 0;
+    background: #fff;
+}
+#cont_inner .title_w {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #dedede;
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+#cont_inner .title_w h2.title {
+    display: inline-block;
+    font-size: 23px;
+    font-weight: normal;
+    color: #000;
+    padding: 0;
+    float: left;
+    line-height: 51px;
+}
+#contents {
+    clear: both;
+    position: relative;
+    color: #626262;
+    letter-spacing: -0.5px;
+}
+ul.tab_list {
+    position: relative;
+    overflow: hidden;
+    clear: both;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+ul {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+ul.tab_list li.off {
+    float: left;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: #5f5f5f;
+    height: 24px;
+}
+ul.tab_list li {
+    /* float: left; */
+    /* height: 24px; */
+    line-height: 18px;
+    font-size: 16px;
+    /* border-bottom: 1px solid #ddd; */
+    /* border-right: 1px solid #ddd; */
+    text-align: center;
+}
+.tab_5 li {
+    position: relative;
+    width: 15.9%;
+    /* float: left; */
+    padding: 15px 2% 15px 2%;
+}
+ul, ol, li, dl, dt, dd {
+    list-style: none;
+}
+li {
+    display: list-item;
+}
+ul.tab_list li.off a {
+    display: block;
+    color: #fff;
+}
+a {
+    text-decoration: none;
+}
+a:-webkit-any-link {
+    cursor: pointer;
+}
+ul.tab_list li.on {
+    float: left;
+    border-right: 1px solid #ddd;
+    border-bottom: none;
+    background: #fff;
+    border-top: 2px solid #000;
+}
+ul.tab_list li.on a {
+    display: block;
+    color: #333;
+}
+/* myheader 끝 */
+

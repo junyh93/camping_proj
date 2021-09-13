@@ -36,8 +36,41 @@
 	<!-- 후기 페이지 -->
 	<select id="getReviewList" resultType="review">
 	<![CDATA[
-		select * from review order by rvNo desc
+		select * from (select r.* , rownum as rnum from(select * from review order by rvNo desc)r) where rnum between #{startList} and  #{startList}+#{listSize}-1 
 	]]>
 	</select>
 	
+	<!-- 총 게시글 수 -->
+	<select id="countReview" resultType="int">
+		<![CDATA[
+			select count(*) from review where rvNo > 0 
+		]]>
+	</select>
+	
+	<select id="getReviewMain" resultType="review">
+		<![CDATA[
+			select * from review order by rvNo desc
+		]]>
+	</select>
+	
+	<!-- 후기 조회수 -->
+	<update id="reviewHit" parameterType="int">
+	<![CDATA[
+		update review set rvHit = rvHit+1 where rvNo=#{rvNo}
+    	]]>
+    </update>
+	
+	<!-- 내 후기 -->
+	<select id="myReview" resultType="review">
+	<![CDATA[
+		select * from review where memNo=#{memNo}
+	]]>
+	</select>
+	
+	<!-- 캠핑장 후기 -->
+	<select id="camReview" resultType="review">
+	<![CDATA[
+		select * from review where contentId=#{contentId}
+	]]>
+	</select>
 </mapper>

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 *{
 	margin:0;
-	padding:0;
+	padding:0; 
 	font-family:'G마켓 산스';
 	font-weight: normal; 
 }
@@ -12,6 +12,361 @@ body{
     height: 100%;
 
 }
+#contents {
+	clear:both;
+	display:flex; 
+ 	flex-direction:column; 
+    width: 1300px;
+    padding: 350px 0px 27px 400px;
+}
+div {
+    box-sizing: border-box;
+    display: block;
+}
+.tit_cont {
+    position: relative;
+    padding-right: 20px;
+}
+/* 제목 */
+.tit_cont h2, .titleType1 h2 {
+    overflow: hidden;
+    font-weight: 800;
+    color: #333;
+    font-size: 36px;
+    letter-spacing: -1px;
+    word-break: keep-all;
+}
+.area_tag + h2 {
+    margin-top: -5px;
+}
+h2 {
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+/* 캠핑장 이름 */
+.forecastWrap .tit_cont .area_address {
+    text-align: left;
+}
+.tit_cont .area_address {
+    position: relative;
+    padding-top: 10px;
+    text-align: center;
+}
+#sggNm1{
+	font-weight: normal;
+	color: gray;
+}
+ #sggNm2{
+	font-weight: lighter;
+	color: gray;
+}
+/* 별점 */
+.tit_cont .area_address .rvStar {
+	float: right;
+}
+.forecastWrap .tit_cont .area_address {
+    text-align: left;
+    margin-right: 10px;
+}
+
+/* 날짜 */
+.forecastWrap .area_address .tag {
+    position: absolute;
+    top: -32px;
+    right: 20px;
+    padding-right: 0;
+    font-size: 14px;
+ 
+    color: #333;
+    text-align: right;
+}
+.tit_cont .tag {
+    width: 600px;
+}
+.forecastWrap .area_address .tag span {
+    padding-left: 5px;
+       font-weight:lighter;
+}
+
+button {
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+   
+    text-shadow: none;
+   
+    text-align: center;
+    align-items: flex-start;
+  
+}
+
+/* 내용 시작 */
+.dbDetail {
+	max-width: 1023px;
+    width: 100%;
+    text-align: center;
+    margin-top: 24px;
+}
+.forecastWrap .slide_info_wrap {
+   /*  position: relative;
+    padding-left: 280px;
+    min-height: 240px; */
+        padding-left: 0;
+    min-height: auto;
+}
+
+/* 글 내용 */
+.forecastWrap .slide_info_wrap .info_list {
+	clear:both;
+    overflow: hidden;    
+    margin-bottom: 25px;
+        background: #f7f7f7;
+          min-height: 45px;
+             vertical-align: middle;
+}
+.forecastWrap .slide_info_wrap .info_list .busy{
+	clear:both;
+    padding: 3px;
+    width: 50%;
+    box-sizing: border-box;
+    display: table-cell;
+    box-sizing: border-box;
+}
+.forecastWrap .slide_info_wrap .info_list .busy p.desc {
+    clear: both;
+    font-size: 14px;
+    color: #888;
+}
+dl, ul, ol, menu, li {
+    list-style: none;
+}
+ul {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.forecastWrap strong.fontBig {
+    font-size: 19px !important;
+}
+.forecastWrap .state {
+    display: inline-block;
+    padding-left: 35px;
+    font-weight: 800;
+    box-sizing: border-box;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.forecastWrap .web_only {
+    display: block !important;
+}
+b {
+    font-weight: bold;
+}
+table {
+	display: table;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-break: break-all;
+    box-sizing: border-box;
+    text-indent: initial;
+}
+colgroup {
+    display: table-column-group;
+}
+col {
+    display: table-column;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+
+/* 글 */
+.forecastWrap .wrap_contView .area_txtView.top {
+    padding: 0 0 54px;
+}
+.wrap_contView .area_txtView {
+    position: relative;
+    padding-bottom: 0 !important;
+}
+.forecastWrap .wrap_contView .area_txtView.top .inr_wrap {
+    overflow: hidden;
+    height: 200px;
+}
+.wrap_contView .area_txtView .inr > p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.7;
+    letter-spacing: -1px;
+}
+u {
+    text-decoration: underline;
+}
+.forecastWrap .wrap_contView .area_txtView.top .cont_more {
+    position: relative;
+    height: 33px;
+}
+.forecastWrap .wrap_contView .area_txtView .btn_more {
+    display: block;
+    right: 3px;
+    overflow: hidden;
+    width: auto;
+    font-weight: 700;
+    background: #fff;
+    border: 0;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    color: #333;
+    letter-spacing: -0.5px;
+    font-size: 16px;
+}
+.wrap_contView .area_txtView .btn_more {
+	    bottom: 0;
+	    height: 40px;
+	    line-height: 40px;
+}
+.forecastWrap .wrap_contView .area_txtView .btn_more:after {
+    content: '+';
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    font-weight: 700;
+    background: none;
+    margin: 0 0 0 5px;
+    color: #333;
+}
+
+.wrap_contView .area_txtView .btn_more:after {
+    /* content: ''; */
+     display: inline-block;
+    /* width: 7px; */
+    /* height: 4px; */
+    /* margin: 18px 0 0 8px; */
+    /* background: url(../images/sub/ico_arrowbtm.png) no-repeat 0 0; */
+    /* background-size: 7px 4px; */
+    vertical-align: top;
+}
+.wrap_contView{
+	text-align: left;
+}
+/* 지도 */
+.forecastWrap .wrap_contView .surroundingsMap {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+.surroundingsMap {
+    margin-top: 35px;
+    padding: 0 0 13px;
+}
+.surroundingsMap .wrap_map {
+
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+/* 상세정보 */
+.forecastWrap .wrap_contView .area_txtView.bottom {
+    padding: 25px 0 20px !important;
+    border-bottom: 1px solid #ddd;
+}
+.wrap_contView .area_txtView {
+    position: relative;
+}
+.forecastWrap .wrap_contView .area_txtView .stit {
+    display: block;
+    padding-bottom: 13px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+.forecastWrap .wrap_contView .area_txtView ul li {
+    float: left;
+    width: 50%;
+    padding: 0 0 9px 0;
+    display: table;
+    font-size: 15px;
+    font-weight: 400;
+    background: none !important;
+}
+.wrap_contView .area_txtView .inr{
+	margin-bottom: 0;
+}
+.wrap_contView .area_txtView .inr ul li {
+    overflow: hidden;
+}
+.forecastWrap .wrap_contView .area_txtView ul li strong {
+    clear:both;
+    float: none;
+    margin-right: 0;
+    position: relative;
+    display: table-cell;
+    width: 128px;
+    padding: 0 0 0 12px;
+    font-weight: 700;
+    color: #333;
+    font-size: 15px;
+}
+.forecastWrap .wrap_contView .area_txtView ul li span {
+    float: none;
+    width: auto;
+    display: table-cell;
+    color: #666;
+    padding-right: 20px;
+    line-height: 1.4;
+    font-size: 15px;
+}
+.forecastWrap .wrap_contView .area_txtView + .area_txtView {
+    border-top: 0;
+    overflow: hidden;
+    margin-top: 0;
+    padding: 25px 0 20px !important;
+}
+
+
 
 /* star */
 .starR1{
@@ -57,50 +412,64 @@ body{
 	display:flex;
 	flex-direction:column;
 	align-items:center;
-	margin-top: 21px;
-}
-.title{
 	
 }
-.facltnm{
-	
+#sub_title_wrap {
+    position: relative;
+    width: 100%;
+    clear: both;
 }
-.addr{
-	
+.layout, .layout2 {
+    display: block;
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
 }
-.img{
-	
+.clearfix:after, .layout:after, .layout2:after, .imgBox:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ".";
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
 }
-.img_main{
-	
+.s_title {
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+    top: 100px;
+    text-shadow: 2px 2px 3px rgb(0 0 0);
 }
-.img_sub{
-	
+.s_title .tt1dept {
+    font-size: 40px;
+    line-height: 40px;
 }
-.content{
-	
+.s_title p {
+    display: block;
 }
-
-
-/* 캠핑장 정보 */
-.caminfo{
-	
+.s_title .s_tt {
+    font-size: 20px;
+    clear: both;
+    margin: 0;
+    letter-spacing: -2px;
+    color: #fff;
+    padding: 10px 0 0 0;
 }
-.caminfo .map{
-	
+.s_bg_w {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    z-index: -1;
 }
-.caminfo .factlNm{
-	
-}
-.caminfo .addr{
-	
-}
-.caminfo .lineintro{
-	
-}
-.caminfo .tel{
-	
-}
-.caminfo .homepage{
-	
+/* 배너 이미지 */
+.s_bg_w .s_bg_03 {
+    min-height: 250px;
+    background: url(../img/review.jpg) no-repeat center center;
 }

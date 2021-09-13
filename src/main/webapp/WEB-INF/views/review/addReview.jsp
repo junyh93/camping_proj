@@ -30,7 +30,7 @@
     });
         
 
-  </script>
+ </script>
 
 <script type="text/javascript">
 //별점 후기
@@ -132,6 +132,25 @@ var gfv_count = 1;
 
 </script>
 <section>
+	<!--상단타이틀영역-->
+			<div id="sub_title_wrap">
+				<div class="layout">
+					<h2>
+						<span class="skip">서브타이틀 영역</span>
+					</h2>
+					<!--타이틀-->
+					<div class="s_title">
+						<p class="tt1dept">캠핑 후기</p>
+								<p class="s_tt">캠핑을 시작한다면 이들처럼! 캠핑의 다양한 정보가 가득</p>
+							</div>
+					<!--//타이틀-->
+				</div>
+				<div class="s_bg_w">
+					<!-- s_bg_02~05 캠핑Go, 캠핑Talk, 캠핑플러스, 고객센터, 마이페이지 -->
+					<div class="s_bg_03"></div>
+						</div>
+			</div>
+			<!--//상단타이틀영역-->
 <!--  -->
         <!-- wrapper -->
         <h2 id="header">후기작성</h2>
@@ -199,7 +218,7 @@ var gfv_count = 1;
                 <div class="rvContent">
                     <h2>캠핑장에 대한 후기를 남겨주세요.</h2>
                     <span class="box" style="width: auto; height: auto;">
-                    	<textarea   id="test" name="rvContent" rows="20" cols="58"></textarea> 
+                    	<textarea   id="test" name="rvContent" rows="20" cols="52"></textarea> 
                     </span>
                     <div align="right" id="test_cnt">(0 / 500)</div>
                 </div>

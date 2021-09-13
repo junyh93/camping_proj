@@ -10,6 +10,11 @@
 		<typeAlias alias="admin" type="com.camping.biz.admin.AdminVO"/>
 		<typeAlias alias="review" type="com.camping.biz.review.ReviewVO"/>
 		<typeAlias alias="comment" type="com.camping.biz.comment.CommentVO"/>
+		<typeAlias alias="recommend" type="com.camping.biz.recommend.RecommendVO"/>
+		<typeAlias alias="keep" type="com.camping.biz.keep.KeepVO"/>
+		<typeAlias alias="qna" type="com.camping.biz.qna.QnaVO"/>
+		<typeAlias alias="notice" type="com.camping.biz.notice.NoticeVO"/>
+		<typeAlias alias="tip" type="com.camping.biz.tip.TipVO"/>
 	</typeAliases>
 
 	<!-- Sql Mapper 설정 -->
@@ -18,6 +23,11 @@
 		<mapper resource="mappings/admin-mapping.xml"/>
 		<mapper resource="mappings/review-mapping.xml"/>
 		<mapper resource="mappings/comment-mapping.xml"/>
+		<mapper resource="mappings/recommend-mapping.xml"/>
+		<mapper resource="mappings/keep-mapping.xml"/>
+		<mapper resource="mappings/qna-mapping.xml"/>
+		<mapper resource="mappings/notice-mapping.xml"/>
+		<mapper resource="mappings/tip-mapping.xml"/>
 	</mappers>
 
 </configuration>

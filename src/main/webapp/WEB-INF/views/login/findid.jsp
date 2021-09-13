@@ -41,7 +41,7 @@ $(function(){
 					$('.find_input_id').hide();
 					$('.find_input_pw').hide();
 					$('#id').append("<h2>" + finish + "</h2>");
-					
+					$('#findBtn').hide();
 				}
 
 			},

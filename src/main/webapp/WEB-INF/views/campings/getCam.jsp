@@ -1,146 +1,151 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../common/header.jsp" %>
+<%@include file="../common/camheader.jsp" %>
 
 <title>캠핑장 상세보기</title>
 <link type="text/css" href="<c:url value='/css/getCam.css'/>"  rel="stylesheet" >
 
-<script type="text/javascript">
-$(function(){
-	
+<script src="<c:url value='/js/getCam.js'/>"></script>
 
-var url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList'; 
-var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'Po8b3s%2BelMewEpuJuSSNclaKWDReZThq%2FrOSAU0x%2BqHff1gACrKi1G3eez3LwxPQLMoN9ntPatUmspBAZTJd5w%3D%3D'; 
-var contentID = Number($('#contentId').val());
-
-queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); 
-queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10000'); 
-queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); 
-queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); 
-queryParams += '&_type=json';
-
-
-$.ajax({
-		method: "GET",
-		url: url + queryParams,
-}).done(function(msg) {
-		
-		var item = msg.response.body.items.item;
-		var temp = "";
-		
-		console.log(item);
-			
-		$.each(item,function(i){
-			
-			var contentId = item[i].contentId;	
-			
-			if(contentId == contentID){
-				temp = item[i];
-			}
+	<div class="camp_cont_w">
+		<h2 class="skip">캠핑장 이용안내</h2>
+		<div class="line_100">
+			<span class="skip">탭영역 다단 라인</span>
+		</div>
+		<div class="layout">
+			<ul class="camp_tab05" >
+				<li class="on"><a href="<c:url value='getCam.do?contentId=${contentId }'/>" class="campp_intro">캠핑장 소개</a></li>
+				<li class="off"><a href="#" class="campp_map" onclick="camMap('${contentId}')">위치/주변정보</a></li>
+				<li class="off"><a href="#" class="campp_review" onclick="camReview('${contentId}')">캠핑&amp;여행후기</a></li>
+			</ul>
+<!-- <script type="text/javascript">
+	$(document).ready(function() {
+		$("html, body").animate({
+			scrollTop : $(".camp_intro").offset().top
 		});
-			item = temp;
-			
-			console.log(item);
-			var firstImageUrl = item.firstImageUrl == null ? "/camping/img/캠핑야경.jpg" : item.firstImageUrl;
-			var facltNm = item.facltNm == null ? "-" : item.facltNm;
-			var addr1 = item.addr1 == null ? "-" : item.addr1;
-			var tel = item.tel == null ? "-" : item.tel;
-			var homepage = item.homepage == null ? "-" : item.homepage;
-			var lctCl = item.lctCl == null ? "-" : item.lctCl;
-			var induty = item.induty == null ? "-" : item.induty;
-			var operPdCl = item.operPdCl == null ? "-" : item.operPdCl;
-			var operDeCl = item.operDeCl == null ? "-" : item.operDeCl;
-			var resveCl = item.resveCl == null ? "-" : item.resveCl;
-			var posblFcltyCl = item.posblFcltyCl == null ? "-" : item.posblFcltyCl;
-			var sbrsCl = item.sbrsCl == null ? "-" : item.sbrsCl;
+	});
+</script> -->
+	<div class="camp_intro">
+	
+	<!-- 캠핑장 사진 -->
+		<ul class="camp_intro_image"></ul>
 		
-			
+	<!-- 캠핑장 한줄 소개 -->
+	<p class="camp_intro_txt intro"></p>
+	
+	<!-- 캠핑장 시설 정보 -->
+	<h3 class="icon_h3 sbrsCl">캠핑장 시설정보</h3>
+		<div class="camp_item_g"></div>
 		
-		$('.imageUrl').html("<img src='<c:url value='"+firstImageUrl+"'/>' width='100%'/>");
-		$('#facltNm').html(facltNm);
-		$('#addr1').html(addr1);
-		$('#tel').html(tel);
-		$('#homepage').html("<a href='<c:url value='"+homepage+"'/>' target='_BLANK' title='새창열림'>홈페이지 바로가기</a>");
-		$('#lctCl').html(lctCl);//캠핑장 환경 - 산 바다
-		$('#induty').html(induty);// 캠핑장 유형 - 일반야영장 글램핑 자동차야영장 등
-		$('#operPdCl').html(operPdCl);//운영기간 - 봄,가을
-		$('#operDeCl').html(operDeCl);// 운영일 - 평일+주말
-		$('#resveCl').html(resveCl);// 예약구분 - 온라인실시간예약 전화예약 등
-		$('#posblFcltyCl').html(posblFcltyCl);// 주변이용가능시설 - 산책로 등
-		$('#sbrsCl').html(sbrsCl);//부대시설 - 전기 와이파이 놀이터 등
-	});	
-});	
-</script>
+	<!-- 캠핑장 기타 주요 시설  -->
+	<h3 class="icon_h3">기타 주요시설</h3>
+	
+	<section id="table_type03">
+		<h2 class="skip">기타 주요시설 안내 테이블입니다.</h2>
+		<div class="table_w">
+			<table class="table_t4 camp_etc_tb">
+				<caption>
+					<strong>기타 주요시설 안내 테이블</strong>
+					<p>주요시설, 사이트간격, 바닥형태, 편의시설, 캠핑장비대여, 반려동물출입, 화로대로 나뉘어 설명합니다.</p>
+				</caption>
 
-<input type="hidden" id="contentId" name="contentId" value="${contentId }">
-
-<section class="content">
-	<div class="imageUrl">
+				<tbody class="t_c">
+				
+					<tr class="tr_site">
+						<th scope="col">주요시설</th>
+						<td>
+							<ul class="table_ul05 site"></ul>
+						</td>
+					</tr>
+					
+					<tr class="tr_posblFcltyCl">
+						<th scope="col">주변이용가능시설</th>
+						<td>
+							<ul class="table_ul05 posblFcltyCl"></ul>
+						</td>
+					</tr>
+					
+	<!-- 조건에 따라 출력여부 발생 -->
+					<tr class="tr_glamp">
+						<th scope="col">글램핑 내부시설</th>
+						<td>
+							<ul class="table_ul05 glamp"></ul>
+						</td>
+					</tr>
+					
+					<tr class="tr_carav">
+						<th scope="col">카라반 내부시설</th>
+						<td>
+							<ul class="table_ul05 carav"></ul>
+						</td>
+					</tr>
+					
+					<tr class="tr_bottom">
+						<th scope="col">바닥형태 (단위:면)</th>
+						<td>
+							<ul class="table_ul05 bottom"></ul>
+						</td>
+					</tr>
+					
+					<tr>
+						<th scope="col">반려동물 출입</th>
+						<td class="etc_type animal"></td>
+					</tr>
+					
+					<tr class="tr_eqp">
+						<th scope="col">캠핑장비 대여</th>
+						<td class="etc_type eqp"></td>
+					</tr>
+					
+					<tr class="tr_brazierCl">
+						<th scope="col">화로대</th>
+						<td class="etc_type brazierCl"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<p class="camp_intro_txt">
+			<span class="info_notice">
+				&nbsp;* 고캠핑에 등록된 정보는 현장상황과 다소 다를 수 있으니 <span class="info_f_red">반려동물 동반 여부, 부가 시설물, 추가차량</span> 등 원활한 캠핑을 위해 꼭 필요한 사항은 해당 캠핑장에 미리 확인하시기 바랍니다.
+			</span> 
+		</p>
+	</section>
+	
+	
+	<!-- 캠핑장 주요 사진 -->
+	<h3 class="icon_h3 mt_50"></h3>
+		<div class="box_photo">
+			<div id="gallery" style="max-width: 100%; min-width: 150px; overflow: visible; height: auto;" class="ug-gallery-wrapper ug-theme-tiles">
+					
+					<div class="ug-overlay-disabled" style="display:none"></div>
+					<ul class="ug-tiles-wrapper ug-tiletype-columns ug-tiles-transit ug-tiles-rest-mode" style="position: relative; height: 793px;">
+					</ul>
+					<div class="ug-tiles-preloader ug-preloader-trans" style="opacity: 1; position: absolute; margin: 0px; left: 558px; top: 100px; display: none;"></div>
+					
+			</div>
+		</div>
+		
+		
+		<div style="margin-top: -30px; margin-bottom: 30px;">
+			※ 모든 컨텐츠의 저작권은 고캠핑에 있습니다. 무단 사용 및 불법 재배포는 법적 조치를 받을 수 있습니다.
+		</div>
+		<!-- <script>
+			$(document).ready(function() {
+				$("#gallery").unitegallery();
+			});
+		</script> -->
 		
 	</div>
-<!-- 	<div class="cam">
-		<div id="facltNm"></div>
-		<div id="addr1"></div>
-		<div id="tel"></div>
-		<div id="homepage"></div>
-		<div id="lctCl"></div>
-		<div id="induty"></div>
-		<div id="operPdCl"></div>
-		<div id="operDeCl"></div>
-		<div id="resveCl"></div>
-		<div id="posblFcltyCl"></div>
-	</div> -->
-<div class="cont_tb">
-	<table class="table">
-		<colgroup>
-			<col style="width: 30%;">
-			<col style="width: 70%;">
-		</colgroup>
-		<tbody>
-			<tr>
-				<th scope="col">주소</th>
-				<td id="addr1"></td>
-			</tr>
-			<tr class="camp_call_pcVer">
-				<th scope="col">문의처</th>
-				<td id="tel"></td>
-			</tr>
-			<tr>
-				<th scope="col">캠핑장 환경</th>
-				<td id="lctCl"></td>
-			</tr>
-			<tr>
-				<th scope="col">캠핑장 유형</th>
-				<td id="induty"></td>
-			</tr>
-			<tr>
-				<th scope="col">운영기간</th>
-				<td id="operPdCl"></td>
-			</tr>
-			<tr>
-				<th scope="col">운영일</th>
-				<td id="operDeCl"></td>
-			</tr>
-			<tr>
-				<th scope="col">홈페이지</th>
-				<td id="homepage">
-				<i class="ico_link"><span class="skip">새창으로</span></i>
-				</td>
-			</tr>
-			<tr>
-				<th scope="col">예약방법</th>
-				<td id="resveCl"></td>
-			</tr>
-		</tbody>
-	</table>
-		<div class="btn_w">
-			<button type="button" class="btn_bB1 best" onclick="fnCampLike(); return false">추천하기</button>
-			<button type="button" class="btn_rB1 zzim" onclick="fnCampBkmk(); return false">찜하기</button>
-			<button type="button" class="btn_gB1 btn_modify" onclick="location.href='/zboard/createForm.do?lmCode=campRequest&amp;c_no=7638'; return false;">정보수정요청</button>
-		</div>
-<div>
-<div id="sbrsCl"></div>
-</div>									
-</div>	
+<!-- 캠핑장 소개 끝 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e12329a55940adf92079d7a2dfa76447"></script>	
+	</div>
+	
+	
+	</div>
+	
+	</div>	
+
 </section>
 <%@include file="../common/footer.jsp" %>

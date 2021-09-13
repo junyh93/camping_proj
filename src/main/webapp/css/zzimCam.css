@@ -1,0 +1,151 @@
+@charset "UTF-8";
+div.mypage_g1 {
+    height: auto;
+    overflow: hidden;
+    border-top: 2px solid #000; 
+}
+.camp_search_list {
+    position: relative;
+    width: 100%;
+    clear: both;
+    border-top: 2px solid #474747;
+    border-collapse: collapse;
+}
+.icon_h3 {
+    position: relative;
+    font-size: 20px;
+    font-weight:bold;
+    color: #000;
+    padding-left: 29px;
+    line-height: 27px;
+    background: url(../img/icon_h3.gif) no-repeat left 6px;
+    margin: 40px 0 13px 0;
+    letter-spacing: -0.08em;
+    word-break: break-all;
+}
+ul {
+    display: block;
+    list-style: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.t_c {
+    text-align: center !important;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.camp_search_list .c_list {
+    position: relative;
+    padding: 25px 20px;
+    height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid #dbdbdb;
+}
+.camp_search_list .c_list.update {
+    background: #f8fcfe;
+}
+.camp_search_list .c_list.update {
+    background: #f8fcfe;
+}
+a:link, a:visited {
+    color: #626262;
+}
+.zzim_box {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: table-cell;
+    text-align: right;
+    padding-right: 62px;
+    z-index: 10;
+}
+.zzim_box > button {
+    padding: 2px 10px !important;
+    font-size: 11px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    display: block;
+}
+.btn_black {
+    border-radius: 5px;
+    text-align: center;
+    background: #000;
+    color: #fff;
+}
+button, [type="button"], [type="reset"], [type="submit"] {
+    cursor: pointer;
+}
+button {
+    text-transform: none;
+    vertical-align: middle;
+    margin: 0px;
+    border: 0px;
+    letter-spacing: -1px;
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    align-items: flex-start;
+    cursor: default;
+        box-sizing: border-box;
+}
+.camp_search_list .c_list .img_box {
+    width: 275px;
+    height: 195px;
+    position: relative;
+    float: left;
+}
+.img_box {
+    background: #f7f8f8;
+}
+.camp_search_list .c_list .img_box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.camp_cont {
+    width: calc( 100% - 300px);
+    height: auto;
+    float: right;
+}
+.camp_tt {
+    text-align: left;
+    clear: both;
+    margin-top: 22px;
+    display: block;
+    padding-bottom: 5px;
+}
+.camp_info01 {
+    text-align: left;
+    list-style: none;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    margin: 0;
+}
+.camp_info01 li.addr {
+	background: url(../img/ico_map01.png) no-repeat left 0px;
+    padding-left: 25px;
+    margin-right: 20px;
+    height: 28px;
+}
+.camp_info01 li.tel {
+	background: url(../img/ico_call01.png) no-repeat left 0px;
+    padding-left: 25px;
+    margin-right: 20px;
+    height: 28px;
+}
+.camp_info01 li {
+    float: left;
+    font-size: 14px;
+    color: #000;
+    font-weight: lighter;
+}

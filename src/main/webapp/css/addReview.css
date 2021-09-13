@@ -21,7 +21,7 @@ section {
 	display:flex;
 	flex-direction:column;
 	align-items:center;
-	margin-top: 21px;
+	margin-top: 350px;
 	font-size: 40px;
 }
 #wrapper {
@@ -127,4 +127,63 @@ select {
     font-size: 20px;
     font-weight: 400;
     font-family:  'Jua', sans-serif;
+}
+#sub_title_wrap {
+    position: relative;
+    width: 100%;
+    clear: both;
+}
+.layout, .layout2 {
+    display: block;
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+.clearfix:after, .layout:after, .layout2:after, .imgBox:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ".";
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+.s_title {
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+    top: 100px;
+    text-shadow: 2px 2px 3px rgb(0 0 0);
+}
+.s_title .tt1dept {
+    font-size: 40px;
+    line-height: 40px;
+}
+.s_title p {
+    display: block;
+}
+.s_title .s_tt {
+    font-size: 20px;
+    clear: both;
+    margin: 0;
+    letter-spacing: -2px;
+    color: #fff;
+    padding: 10px 0 0 0;
+}
+.s_bg_w {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+/* 배너 이미지 */
+.s_bg_w .s_bg_03 {
+    min-height: 250px;
+    background: url(../img/review.jpg) no-repeat center center;
 }

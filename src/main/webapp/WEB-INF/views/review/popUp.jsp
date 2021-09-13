@@ -141,8 +141,8 @@ $(function(){
 	  	<div>
 	  	
 	  	<input type="text" class="keyword2" id="searchKrwd_f" name="searchKrwd" placeholder="검색어를 입력하세요.">
-			<input type="text" id="local1">
-			<input type="text" id="local2">
+			<input type="hidden" id="local1">
+			<input type="hidden" id="local2">
             <button type="button" id="search">검색하기</button>
 		</div>
 		<div class=item></div>

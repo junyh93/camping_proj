@@ -1,0 +1,75 @@
+@charset "UTF-8";
+.icon_h3 {
+    position: relative;
+    font-size: 20px;
+    font-weight:bold;
+    color: #000;
+    padding-left: 29px;
+    line-height: 27px;
+    background: url(../img/icon_h3.gif) no-repeat left 6px;
+    margin: 40px 0 13px 0;
+    letter-spacing: -0.08em;
+    word-break: break-all;
+}
+.board_list {
+    position: relative;
+    width: 100%;
+    clear: both;
+    border-top: 2px solid #474747;
+    font-size: 15px;
+    border-collapse: collapse;
+}
+.board_list .table_list {
+    width: 100%;
+}
+.board_list .table_list th {
+    padding: 25px 10px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fbfdff;
+}
+.board_list .table_list .board_tit {
+    text-align: left;
+    padding: 11px 14px 13px;
+    font-weight: lighter;
+}
+.board_list .table_list td {
+    line-height: 18px;
+    font-weight: normal;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+    letter-spacing: -0.05em;
+}
+/* 회원 탈퇴 및 비번 변경 버튼 */
+.board_btn_w {
+    position: relative;
+    width: 100%;
+    height: 38px;
+    margin-top: 20px;
+    clear: both;
+}
+.board_btn_w .board_btn {
+    float: right;
+}
+.board_btn_w .board_btn button.b_btn_blue, .board_btn_w .board_btn button.b_btn_blue:visited {
+    background-color: #455db4;
+    font-size: 14px;
+    font-weight: lighter;
+    color: #fff;
+}.board_btn_w .board_btn button {
+    margin: 0px 0px 0px 6px;
+    height: 38px;
+    line-height: 38px;
+    float: left;
+    padding: 0px 20px;
+    display: block;
+    border-radius: 5px;
+    overflow: visible;
+    text-decoration: none !important;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+}
+

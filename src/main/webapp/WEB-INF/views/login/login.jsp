@@ -27,19 +27,12 @@
 		
 		</section>
 		</div>
+		<p class="find_idBtn">
+			<button type="submit" class="btn_black_L"><a href="<c:url value='findid.do'/>" >아이디 찾기</a></button>
+			<button type="submit" class="btn_black_L"><a href="<c:url value='findpw.do'/>">비번 찾기</a></button>
+		</p>
 	</div>
-<section class="form-container">
-<form action="<c:url value='findid.do'/>" method="get" class="formid">
-			<div class="login-button-wrap-id">
-				<button type="submit" class="findid">아이디 찾기</button>
-			</div>
-		</form>
-		<form action="<c:url value='findpw.do'/>" method="get" class="formpw">
-			<div class="login-button-wrap-pw">
-				<button type="submit" class="findpw">비밀번호 찾기</button>
-			</div>
-		</form>
-</section>
+
 
 
 <%@include file="../common/footer.jsp" %>

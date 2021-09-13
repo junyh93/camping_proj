@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TipDAO">
+
+	<insert id="insertTip">
+	 <!-- 시퀀스 값을 가져와서 tipNo컬럼에 넣어준다 -->
+	<selectKey keyProperty="tipNo" resultType="int" order="BEFORE">
+		select tipSeq.nextval from dual
+	</selectKey>
+	
+			insert into tip(tipNo, tipTitle, tipContent, tipDate, tipLink, memNo, memId) 
+			values(#{tipNo}, #{tipTitle}, #{tipContent}, #{tipDate}, #{tipLink}, #{memNo}, #{memId})
+		
+	</insert>
+	
+	<!-- 팁 수정-->
+	<update id="updateTip">
+		<![CDATA[
+			update tip set tipTitle=#{tipTitle}, tipContent=#{tipContent}, tipDate=#{tipDate}, tipLink=#{tipLink} where tipNo=#{tipNo}
+		]]>
+	</update>
+	
+	<!-- 팁 조회수 -->
+	<update id="tipHit" parameterType="int">
+		<![CDATA[
+			update tip set tipHit = tipHit+1 where tipNo=#{tipNo}
+    	]]>
+    </update>
+	
+	<!-- 팁 삭제 -->
+	<delete id="deleteTip">
+		<![CDATA[
+			delete tip where tipNo=#{tipNo}
+		]]>
+	</delete>
+	
+	<!-- 팁 상세보기 -->
+	<select id="getTip" resultType="tip">
+		<![CDATA[
+			select * from tip where tipNo=#{tipNo}
+		]]>
+	</select>
+	
+	<!-- 팁 메인 -->
+	<select id="getTipMain" resultType="tip">
+		<![CDATA[
+			select * from tip order by tipNo desc
+		]]>
+	</select>
+	
+	<!-- 팁 목록 -->
+	<select id="tipList" resultType="tip" >
+		<![CDATA[ 
+			select * from (select t.* , rownum as rnum from(select * from tip order by tipNo desc)t) where rnum between #{startList} and  #{startList}+#{listSize}-1 
+		]]>
+	</select>
+	
+	<!-- 팁 검색 -->
+	<select id="searchTipList" resultType="tip">
+		<![CDATA[
+			select * from (select t.*, rownum as rnum from(select * from tip order by tipNo desc)t 			
+			where tipTitle like '%' || #{searchWrd} || '%' 
+			or tipContent like '%' || #{searchWrd} || '%'
+			order by tipNo desc)
+			where rnum between #{startList}+1 and #{startList} + #{listSize} - 1
+		]]>
+	</select>
+	
+	<!-- 총 게시글 수 -->
+	<select id="countTip" resultType="int">
+		<![CDATA[
+			select count(*) from tip where tipNo > 0 
+		]]>
+	</select>
+	
+	<!-- 총 게시글 검색 수 -->
+	<select id="countSearchTip" resultType="int">
+		<![CDATA[
+			select count(*) from tip 
+			where tipTitle like '%' || #{searchWrd} || '%' 
+			or tipContent like '%' || #{searchWrd} || '%' 
+			order by tipNo desc 
+		]]>
+	</select>
+</mapper>

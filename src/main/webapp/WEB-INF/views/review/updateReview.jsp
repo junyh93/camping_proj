@@ -1,0 +1,235 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="../common/header.jsp" %>
+
+<title>후기 수정</title>
+<link type="text/css" href="<c:url value='/css/addReview.css'/>"  rel="stylesheet" >
+
+
+<script type="text/javascript">
+ 
+    $(document).ready(function() {
+        $('#test').on('keyup', function() {
+            $('#test_cnt').html("("+$(this).val().length+" / 500)");
+ 
+            if($(this).val().length > 500) {
+                $(this).val($(this).val().substring(0, 100));
+                $('#test_cnt').html("(500 / 500)");
+            }
+        });
+    });
+        
+
+ </script>
+<script type="text/javascript">
+$(function(){
+	if($('#stcnt').val() == 1){
+		  $('#stohf').parent().children('span').removeClass('on');
+		  $('#stohf').addClass('on').prevAll('span').addClass('on');
+		  return false;
+	}else if($('#stcnt').val() == 2){
+		  $('#stone').parent().children('span').removeClass('on');
+		  $('#stone').addClass('on').prevAll('span').addClass('on');
+		  return false;
+	}else if($('#stcnt').val() == 3){
+		  $('#stonehf').parent().children('span').removeClass('on');
+		  $('#stonehf').addClass('on').prevAll('span').addClass('on');
+		  return false;
+	}else if($('#stcnt').val() == 4){
+		  $('#sttwo').parent().children('span').removeClass('on');
+		  $('#sttwo').addClass('on').prevAll('span').addClass('on');
+		  return false;
+	}else if($('#stcnt').val() == 5){
+		  $('#sttwohf').parent().children('span').removeClass('on');
+		  $('#sttwohf').addClass('on').prevAll('span').addClass('on');
+		  return false;
+	}else if($('#stcnt').val() == 6){
+		  $('#stth').parent().children('span').removeClass('on');
+		  $('#stth').addClass('on').prevAll('span').addClass('on');
+		  return false;
+	}else if($('#stcnt').val() == 7){
+		  $('#stthhf').parent().children('span').removeClass('on');
+		  $('#stthhf').addClass('on').prevAll('span').addClass('on');
+		  return false;
+	}else if($('#stcnt').val() == 8){
+		  $('#stfour').parent().children('span').removeClass('on');
+		  $('#stfour').addClass('on').prevAll('span').addClass('on');
+		  return false;
+	}else if($('#stcnt').val() == 9){
+		  $('#stfourhf').parent().children('span').removeClass('on');
+		  $('#stfourhf').addClass('on').prevAll('span').addClass('on');
+		  return false;
+	}else if($('#stcnt').val() == 10){
+		  $('#stfive').parent().children('span').removeClass('on');
+		  $('#stfive').addClass('on').prevAll('span').addClass('on');
+		  return false;
+	}
+});
+
+</script>
+<script type="text/javascript">
+$(function(){
+	var rvImg = $('#rvImg').val();
+	
+		$.each(rvImg,function(i){
+			rvImg	
+		});
+
+	
+});
+</script>
+<script type="text/javascript">
+//사진 추가
+var gfv_count = 1;
+	$(document).ready(function(){
+		
+		$('#addFile').on("click",function(e){
+			e.preventDefault();
+			fn_addFile();
+		});
+		
+		$('a[name="delete"]').on('click',function(e){
+			e.preventDefault();
+			fn_deleteFile($(this));
+		});
+	});
+
+		function fn_addFile(){
+			var str = "<span class='box'><input type='file' name='rvFolder"+(gfv_count++)+"'><a href='#this' class='imgbtn' name='delete'>삭제</a></span>";
+			
+			$('.rvImg').append(str);
+			$('a[name="delete"]').on('click',function(e){
+				e.preventDefault();
+				fn_deleteFile($(this));
+			
+			});
+			
+			if(gfv_count > 4){
+				alert('최대 5장까지만 가능합니다.');
+			}
+			
+		}
+		
+
+		function fn_deleteFile(obj){
+			obj.parent().remove();
+		}
+
+</script>
+
+<section>
+	<!--상단타이틀영역-->
+			<div id="sub_title_wrap">
+				<div class="layout">
+					<h2>
+						<span class="skip">서브타이틀 영역</span>
+					</h2>
+					<!--타이틀-->
+					<div class="s_title">
+						<p class="tt1dept">캠핑 후기</p>
+								<p class="s_tt">캠핑을 시작한다면 이들처럼! 캠핑의 다양한 정보가 가득</p>
+							</div>
+					<!--//타이틀-->
+				</div>
+				<div class="s_bg_w">
+					<!-- s_bg_02~05 캠핑Go, 캠핑Talk, 캠핑플러스, 고객센터, 마이페이지 -->
+					<div class="s_bg_03"></div>
+						</div>
+			</div>
+			<!--//상단타이틀영역-->
+<!--  -->
+        <!-- wrapper -->
+        <h2 id="header">후기 수정</h2>
+       <form  action="updatereview.do" id="wrapper" method="post"  enctype="multipart/form-data">
+
+		 <input type="hidden" id="sessionNo" name="memNo" value="${memNo}">
+		 <input type="hidden" id="sessionId" name="memId" value="${memId}">
+		 <input type="hidden" id="rvImg" name="rvImg" value="${review.rvImg }">
+		 
+<!-- 		 <input type="hidden" id="addr" name="addr">
+		 <input type="hidden" id="contentId" name="contentId">
+     	 <input type="hidden" id="lieIntro" name="lineIntro">
+		 <input type="hidden" id="tel" name="tel">
+     	 <input type="hidden" id="homePage" name="homePage">
+     	 <input type="hidden" id="imgUrl" name="imgUrl">
+		 <input type="hidden" id="mapX" name="mapX">
+     	 <input type="hidden" id="mapY" name="mapY">
+     	 -->
+            <!-- content start-->
+            <div id="content">
+                <!-- NAME -->
+                <div class="title">
+                	<label>제목</label>
+                    <span class="box">
+                        <input type="text" id="name" name="rvTitle" class="int" maxlength="20" value="${review.rvTitle }">
+
+                    </span>
+                </div>
+                <br>
+             
+             <!-- 캠핑장 검색 -->
+             <div class="camsearch">
+           <!--   	<label>예약한 캠핑장명을 검색하세요.</label>
+             	<button type="button" id="popup">검색하기</button> -->
+         		<div class="form1_1">
+						<!-- <input type="text" class="keyword2" id="searchKrwd_f" name="searchKrwd" placeholder="캠핑장을 입력하세요."> -->
+						<input type="text" id="facltNm"  name="facltNm" class="facltNm"  readonly="readonly" style="border:none; font-size: 20px;">${review.facltNm }
+						
+				</div> 
+             </div>
+                  
+                <!-- STAR -->
+                 <div class="rvStar">
+                 <label>별점</label>
+					<div class="starRev">
+					  <span id="stohf" class="starR1 on" >별1_왼쪽</span>
+					  <span id="stone" class="starR2" >별1_오른쪽</span>
+					  <span id="stonehf" class="starR1" >별2_왼쪽</span>
+					  <span id="sttwo" class="starR2" >별2_오른쪽</span>
+					  <span id="sttwohf" class="starR1" >별3_왼쪽</span>
+					  <span id="stth" class="starR2" >별3_오른쪽</span>
+					  <span id="stthhf" class="starR1" >별4_왼쪽</span>
+					  <span id="stfour" class="starR2" >별4_오른쪽</span>
+					  <span id="stfourhf" class="starR1" >별5_왼쪽</span>
+					  <span id="stfive" class="starR2" >별5_오른쪽</span>
+					  <input type="hidden" id="stcnt" name="rvStar" value="${review.rvStar}">
+					</div>
+                </div>
+				<br>
+				<br>
+                <!-- CONTENT -->
+                <div class="rvContent">
+                    <h2>캠핑장에 대한 후기를 남겨주세요.</h2>
+                    <span class="box" style="width: auto; height: auto;">
+                    	<textarea   id="test" name="rvContent" rows="20" cols="58">${review.rvContent }</textarea> 
+                    </span>
+                    <div align="right" id="test_cnt">(0 / 500)</div>
+                </div>
+
+                <!-- IMAGE -->
+                <div class="rvImg">
+                    <label>사진</label>
+                    <div style="text-align: right;">
+                    	<a href="#this" class="imgbtn" id="addFile" >파일 추가</a>
+                    	<input type="text" placeholder="최대 5장까지만 가능합니다." style="border: none;" disabled>
+                    </div>
+                    <span class="box">
+                        <input  type="file" id="image" name="rvFolder"  >
+                    	<a href="#this" class="imgbtn" name="delete">삭제</a>
+                    </span>
+                </div>
+                <br>
+  
+                <!-- JOIN BTN-->
+                <div class="btn_area">
+                    <button type="submit" id="btnJoin">
+                        <span>수정하기</span></button>
+                </div>
+           
+            </div>
+            <!-- content end-->
+               
+</form> 
+</section>
+
+<%@include file="../common/footer.jsp" %>
